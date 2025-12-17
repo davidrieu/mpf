@@ -236,59 +236,230 @@
     .mpf-section-subtitle {
         font-size: 1.2rem;
         color: var(--text-secondary);
-        max-width: 700px;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.8;
+    }
+
+    /* Investment Intro Section */
+    .mpf-investment-intro {
+        background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
+        padding: 6rem 2rem;
+    }
+
+    .mpf-investment-content {
+        max-width: 1200px;
         margin: 0 auto;
     }
 
-    /* Evolution Section */
-    .mpf-evolution-grid {
+    .mpf-investment-highlights {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .mpf-highlight-card {
+        text-align: center;
+        padding: 2.5rem 2rem;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        backdrop-filter: blur(20px);
+        transition: all 0.4s ease;
+    }
+
+    .mpf-highlight-card:hover {
+        background: rgba(255, 255, 255, 0.08);
+        transform: translateY(-8px);
+        border-color: var(--accent-color);
+    }
+
+    .mpf-highlight-number {
+        font-size: 3rem;
+        font-weight: 900;
+        color: var(--accent-color);
+        margin-bottom: 0.5rem;
+        line-height: 1;
+    }
+
+    .mpf-highlight-label {
+        font-size: 1.1rem;
+        color: var(--text-primary);
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    .mpf-highlight-desc {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+    }
+
+    /* Why Invest Section */
+    .mpf-why-invest {
+        padding: 6rem 2rem;
+        background: radial-gradient(circle at 50% 0%, rgba(157, 44, 32, 0.08) 0%, transparent 70%);
+    }
+
+    .mpf-reasons-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .mpf-reason-card {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        padding: 2.5rem;
+        backdrop-filter: blur(20px);
+        transition: all 0.4s ease;
+    }
+
+    .mpf-reason-card:hover {
+        background: rgba(255, 255, 255, 0.08);
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px rgba(157, 44, 32, 0.2);
+    }
+
+    .mpf-reason-icon {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, var(--accent-color), #D94436);
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 8px 24px var(--accent-glow);
+    }
+
+    .mpf-reason-card h3 {
+        font-size: 1.8rem;
+        color: #ffffff;
+        margin-bottom: 1rem;
+    }
+
+    .mpf-reason-card p {
+        color: var(--text-secondary);
+        font-size: 1.05rem;
+        line-height: 1.8;
+        margin-bottom: 1rem;
+    }
+
+    .mpf-reason-card ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 1.5rem;
+    }
+
+    .mpf-reason-card li {
+        color: var(--text-secondary);
+        padding: 0.5rem 0;
+        padding-left: 2rem;
+        position: relative;
+    }
+
+    .mpf-reason-card li:before {
+        content: '→';
+        position: absolute;
+        left: 0;
+        color: var(--accent-color);
+        font-weight: 900;
+    }
+
+    /* Revenue Streams Section */
+    .mpf-revenue-section {
+        background: #000000;
+        padding: 6rem 2rem;
+    }
+
+    .mpf-revenue-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 2rem;
         margin-top: 3rem;
     }
 
-    .mpf-evolution-card {
+    .mpf-revenue-card {
         position: relative;
         overflow: hidden;
     }
 
-    .mpf-evolution-card .mpf-card-number {
+    .mpf-revenue-badge {
         position: absolute;
-        top: -10px;
+        top: 20px;
         right: 20px;
-        font-size: 6rem;
-        font-weight: 900;
-        color: rgba(157, 44, 32, 0.1);
-        line-height: 1;
-    }
-
-    .mpf-evolution-card h3 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
+        background: var(--accent-color);
         color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        z-index: 2;
     }
 
-    .mpf-evolution-card p {
-        color: var(--text-secondary);
-        font-size: 1rem;
+    /* How It Works Section */
+    .mpf-how-it-works {
+        background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
+        padding: 6rem 2rem;
     }
 
-    .mpf-evolution-card .mpf-icon {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 1.5rem;
+    .mpf-steps-container {
+        max-width: 1000px;
+        margin: 3rem auto;
+        position: relative;
+    }
+
+    .mpf-step {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+        position: relative;
+    }
+
+    .mpf-step-number {
+        width: 100px;
+        height: 100px;
+        background: linear-gradient(135deg, var(--accent-color), #D94436);
+        border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(135deg, var(--accent-color), #D94436);
-        border-radius: 16px;
-        box-shadow: 0 8px 24px var(--accent-glow);
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: white;
+        box-shadow: 0 10px 30px var(--accent-glow);
+        position: relative;
+        z-index: 2;
+    }
+
+    .mpf-step-content {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        padding: 2rem;
+        backdrop-filter: blur(20px);
+    }
+
+    .mpf-step-content h3 {
+        font-size: 1.8rem;
+        color: #ffffff;
+        margin-bottom: 1rem;
+    }
+
+    .mpf-step-content p {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        line-height: 1.8;
     }
 
     /* Technology Section */
     .mpf-tech-section {
-        background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
+        background: radial-gradient(circle at 50% 50%, rgba(157, 44, 32, 0.05) 0%, transparent 70%);
         padding: 6rem 2rem;
     }
 
@@ -335,90 +506,6 @@
         font-size: 0.95rem;
     }
 
-    /* Alliance Section */
-    .mpf-alliance-section {
-        background: radial-gradient(circle at 50% 0%, rgba(157, 44, 32, 0.1) 0%, transparent 70%);
-        padding: 6rem 2rem;
-    }
-
-    .mpf-alliance-content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-        align-items: center;
-        margin-top: 3rem;
-    }
-
-    .mpf-alliance-image {
-        position: relative;
-        border-radius: 32px;
-        overflow: hidden;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-    }
-
-    .mpf-alliance-image img {
-        width: 100%;
-        height: auto;
-        display: block;
-        border-radius: 32px;
-        transition: transform 0.6s ease;
-    }
-
-    .mpf-alliance-image:hover img {
-        transform: scale(1.05);
-    }
-
-    .mpf-alliance-text h3 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        color: var(--accent-color);
-    }
-
-    .mpf-alliance-text p {
-        color: var(--text-secondary);
-        margin-bottom: 1.5rem;
-        font-size: 1.1rem;
-    }
-
-    .mpf-alliance-benefits {
-        display: grid;
-        gap: 1rem;
-        margin-top: 2rem;
-    }
-
-    .mpf-benefit-item {
-        display: flex;
-        align-items: start;
-        gap: 1rem;
-        padding: 1rem;
-        background: var(--glass-bg);
-        border-radius: 16px;
-        border: 1px solid var(--glass-border);
-        transition: all 0.3s ease;
-    }
-
-    .mpf-benefit-item:hover {
-        background: rgba(255, 255, 255, 0.08);
-        transform: translateX(10px);
-    }
-
-    .mpf-benefit-icon {
-        width: 24px;
-        height: 24px;
-        flex-shrink: 0;
-    }
-
-    .mpf-benefit-item strong {
-        display: block;
-        color: #ffffff;
-        margin-bottom: 0.25rem;
-    }
-
-    .mpf-benefit-item p {
-        margin: 0;
-        font-size: 0.9rem;
-    }
-
     /* Web3 Section */
     .mpf-web3-section {
         background: #000000;
@@ -439,6 +526,21 @@
         animation: pulse 4s ease-in-out infinite;
     }
 
+    .mpf-web3-intro {
+        max-width: 900px;
+        margin: 0 auto 4rem;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    .mpf-web3-intro p {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        line-height: 1.8;
+        margin-bottom: 1rem;
+    }
+
     .mpf-web3-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -446,6 +548,44 @@
         margin-top: 3rem;
         position: relative;
         z-index: 1;
+    }
+
+    .mpf-web3-benefit {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        padding: 2rem;
+        backdrop-filter: blur(20px);
+        transition: all 0.4s ease;
+    }
+
+    .mpf-web3-benefit:hover {
+        background: rgba(255, 255, 255, 0.08);
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px rgba(157, 44, 32, 0.2);
+    }
+
+    .mpf-web3-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, var(--accent-color), #D94436);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 8px 24px var(--accent-glow);
+    }
+
+    .mpf-web3-benefit h3 {
+        font-size: 1.5rem;
+        color: #ffffff;
+        margin-bottom: 1rem;
+    }
+
+    .mpf-web3-benefit p {
+        color: var(--text-secondary);
+        line-height: 1.7;
     }
 
     /* Timeline */
@@ -513,6 +653,93 @@
     .mpf-timeline-content h3 {
         color: #ffffff;
         margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+    }
+
+    /* CTA Section */
+    .mpf-cta-section {
+        background: linear-gradient(135deg, var(--accent-color) 0%, #D94436 100%);
+        padding: 6rem 2rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .mpf-cta-section::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+        animation: rotate 20s linear infinite;
+    }
+
+    .mpf-cta-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .mpf-cta-content h2 {
+        font-size: 3.5rem;
+        font-weight: 900;
+        color: white;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+    }
+
+    .mpf-cta-content p {
+        font-size: 1.3rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 3rem;
+        line-height: 1.7;
+    }
+
+    .mpf-cta-content .mpf-btn {
+        background: white;
+        color: var(--accent-color);
+        font-size: 1.2rem;
+        padding: 1.2rem 3rem;
+    }
+
+    .mpf-cta-content .mpf-btn:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Stats Bar */
+    .mpf-stats-bar {
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(20px);
+        padding: 3rem 2rem;
+        border-top: 1px solid var(--glass-border);
+        border-bottom: 1px solid var(--glass-border);
+    }
+
+    .mpf-stats-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .mpf-stat-item h4 {
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: var(--accent-color);
+        margin-bottom: 0.5rem;
+    }
+
+    .mpf-stat-item p {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
 
     /* Animations */
@@ -562,6 +789,15 @@
         }
     }
 
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
         .mpf-hero h1 {
@@ -574,10 +810,6 @@
 
         .mpf-section-title {
             font-size: 2.5rem;
-        }
-
-        .mpf-alliance-content {
-            grid-template-columns: 1fr;
         }
 
         .mpf-timeline::before {
@@ -604,6 +836,21 @@
         .mpf-timeline-date,
         .mpf-timeline-content {
             padding-left: 60px;
+        }
+
+        .mpf-step {
+            grid-template-columns: 1fr;
+        }
+
+        .mpf-step-number {
+            width: 80px;
+            height: 80px;
+            font-size: 2rem;
+            margin: 0 auto;
+        }
+
+        .mpf-cta-content h2 {
+            font-size: 2.5rem;
         }
     }
 
@@ -639,19 +886,19 @@
         <div class="mpf-hero-content">
             <div class="mpf-logo">MPF GROUP</div>
             <h1>
-                L'agriculture devient
-                <span>haute technologie</span>
+                Investissez dans l'Avenir
+                <span>de l'Agriculture Tokenisée</span>
             </h1>
             <p class="mpf-hero-description">
-                De la première graine à l'actif numérique, notre vision a toujours été de combiner agronomie et technologie.
-                Découvrez notre parcours et nos ambitions futures.
+                MPF GROUP révolutionne l'agriculture en combinant culture indoor haute technologie, IA et blockchain.
+                Investissez dans des actifs agricoles réels et générez des revenus passifs grâce à la tokenisation.
             </p>
             <div class="mpf-cta-buttons">
                 <a href="#" class="mpf-btn mpf-btn-primary">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                     </svg>
-                    Entrer dans MPF
+                    Devenir Investisseur
                 </a>
                 <a href="#" class="mpf-btn mpf-btn-secondary">
                     Découvrir LFT
@@ -663,76 +910,347 @@
         </div>
     </section>
 
-    <!-- Evolution Section -->
-    <div class="mpf-container">
-        <div class="mpf-section-header mpf-reveal">
-            <span class="mpf-section-tag">ÉVOLUTION</span>
-            <h2 class="mpf-section-title">De Mon Plant Fraise à MPF Global</h2>
-            <p class="mpf-section-subtitle">
-                Notre modèle a d'abord structuré la culture et la valorisation de variétés d'exception.
-                Aujourd'hui, avec MPF Global, nous allons plus loin.
-            </p>
-        </div>
-
-        <div class="mpf-evolution-grid">
-            <div class="glass-card mpf-evolution-card mpf-reveal">
-                <div class="mpf-card-number">01</div>
-                <div class="mpf-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                        <path d="M12 2v20M12 2c-2 0-3 1-3 3v2c0 2 1 3 3 3s3-1 3-3V5c0-2-1-3-3-3z"/>
-                        <path d="M12 10c-3 0-5 2-5 5v7h10v-7c0-3-2-5-5-5z"/>
-                    </svg>
-                </div>
-                <h3>Production Maîtrisée</h3>
-                <p>Fermes indoor avec contrôle total : irrigation, lumière, nutrition et photopériode optimisés selon nos standards environnementaux.</p>
+    <!-- Stats Bar -->
+    <div class="mpf-stats-bar">
+        <div class="mpf-stats-container">
+            <div class="mpf-stat-item mpf-reveal">
+                <h4>100%</h4>
+                <p>Traçabilité Blockchain</p>
             </div>
-
-            <div class="glass-card mpf-evolution-card mpf-reveal">
-                <div class="mpf-card-number">02</div>
-                <div class="mpf-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                        <path d="M20 7h-9M14 17H5M18 2L9 11l3 3 9-9-3-3z"/>
-                        <circle cx="7" cy="17" r="3"/>
-                    </svg>
-                </div>
-                <h3>Transformation Premium</h3>
-                <p>Une partie des récoltes est transformée en produits d'exception : gelées, confitures haute gastronomie avec un design et packaging à forte valeur perçue et réelle.</p>
+            <div class="mpf-stat-item mpf-reveal">
+                <h4>365j</h4>
+                <p>Production Continue</p>
             </div>
-
-            <div class="glass-card mpf-evolution-card mpf-reveal">
-                <div class="mpf-card-number">03</div>
-                <div class="mpf-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                        <rect x="2" y="7" width="20" height="14" rx="2"/>
-                        <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
-                    </svg>
-                </div>
-                <h3>Distribution & Marque</h3>
-                <p>Commercialisation directe via B2B, B2C, en France et à l'international, avec une clientèle haut de gamme privilégiant l'expérience client irréprochable.</p>
+            <div class="mpf-stat-item mpf-reveal">
+                <h4>Premium</h4>
+                <p>Fraises Blanches Rares</p>
             </div>
-
-            <div class="glass-card mpf-evolution-card mpf-reveal">
-                <div class="mpf-card-number">04</div>
-                <div class="mpf-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                        <path d="M12 2a10 10 0 1010 10H12V2z"/>
-                        <path d="M12 2v10l7.07 7.07A10 10 0 0012 2z"/>
-                    </svg>
-                </div>
-                <h3>Vente & Traçabilité</h3>
-                <p>Chaque fruit bénéficie d'un suivi complet. Nos solutions de tokenisation tracent l'intégralité de la chaîne, de la graine jusqu'au consommateur final.</p>
+            <div class="mpf-stat-item mpf-reveal">
+                <h4>Web3</h4>
+                <p>Actifs Tokenisés</p>
             </div>
         </div>
     </div>
+
+    <!-- Investment Intro Section -->
+    <section class="mpf-investment-intro">
+        <div class="mpf-container">
+            <div class="mpf-section-header mpf-reveal">
+                <span class="mpf-section-tag">OPPORTUNITÉ D'INVESTISSEMENT</span>
+                <h2 class="mpf-section-title">Une Nouvelle Classe d'Actifs Agricoles</h2>
+                <p class="mpf-section-subtitle">
+                    MPF GROUP transforme l'agriculture traditionnelle en une opportunité d'investissement moderne, traçable et rentable.
+                    Chaque cycle de production devient un actif numérique vous permettant de générer des revenus passifs tout en participant
+                    à la révolution agritech.
+                </p>
+            </div>
+
+            <div class="mpf-investment-highlights">
+                <div class="mpf-highlight-card mpf-reveal">
+                    <div class="mpf-highlight-number">🌱</div>
+                    <div class="mpf-highlight-label">Actifs Réels</div>
+                    <p class="mpf-highlight-desc">Investissez dans une production agricole réelle et tangible</p>
+                </div>
+
+                <div class="mpf-highlight-card mpf-reveal">
+                    <div class="mpf-highlight-number">💰</div>
+                    <div class="mpf-highlight-label">Revenus Passifs</div>
+                    <p class="mpf-highlight-desc">Recevez automatiquement votre part des revenus de vente</p>
+                </div>
+
+                <div class="mpf-highlight-card mpf-reveal">
+                    <div class="mpf-highlight-number">📈</div>
+                    <div class="mpf-highlight-label">Liquidité Web3</div>
+                    <p class="mpf-highlight-desc">Revendez vos tokens sur le marché secondaire à tout moment</p>
+                </div>
+
+                <div class="mpf-highlight-card mpf-reveal">
+                    <div class="mpf-highlight-number">🔒</div>
+                    <div class="mpf-highlight-label">Sécurité Blockchain</div>
+                    <p class="mpf-highlight-desc">Propriété certifiée et transparente via smart contracts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Invest Section -->
+    <section class="mpf-why-invest">
+        <div class="mpf-container">
+            <div class="mpf-section-header mpf-reveal">
+                <span class="mpf-section-tag">AVANTAGES INVESTISSEURS</span>
+                <h2 class="mpf-section-title">Pourquoi Investir dans MPF GROUP ?</h2>
+                <p class="mpf-section-subtitle">
+                    Un modèle économique innovant qui combine agriculture de précision, transformation premium et technologie blockchain
+                    pour offrir des rendements attractifs et une diversification unique de votre portefeuille.
+                </p>
+            </div>
+
+            <div class="mpf-reasons-grid">
+                <div class="mpf-reason-card mpf-reveal">
+                    <div class="mpf-reason-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+                        </svg>
+                    </div>
+                    <h3>Revenus Multiples</h3>
+                    <p>
+                        En tant qu'investisseur MPF, vous bénéficiez de plusieurs sources de revenus : vente des fraises fraîches premium,
+                        transformation en produits gastronomiques, et plus-value potentielle sur vos tokens.
+                    </p>
+                    <ul>
+                        <li>Vente directe des fraises blanches ultra-premium</li>
+                        <li>Revenus de la transformation en produits d'exception</li>
+                        <li>Appréciation de la valeur de vos tokens</li>
+                        <li>Distribution automatique via smart contracts</li>
+                    </ul>
+                </div>
+
+                <div class="mpf-reason-card mpf-reveal">
+                    <div class="mpf-reason-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3>Production 365 Jours</h3>
+                    <p>
+                        Notre système de fermes indoor permet une production continue toute l'année, sans dépendance aux saisons.
+                        Vous générez des revenus constants, cycle après cycle.
+                    </p>
+                    <ul>
+                        <li>Production optimisée 12 mois sur 12</li>
+                        <li>Cycles de récolte prévisibles et réguliers</li>
+                        <li>Pas d'interruption saisonnière</li>
+                        <li>Revenus récurrents et stables</li>
+                    </ul>
+                </div>
+
+                <div class="mpf-reason-card mpf-reveal">
+                    <div class="mpf-reason-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                    </div>
+                    <h3>Technologie de Pointe</h3>
+                    <p>
+                        MPF utilise l'IA, l'IoT et l'automatisation pour maximiser les rendements et minimiser les risques.
+                        Chaque paramètre est contrôlé pour garantir la qualité et la rentabilité.
+                    </p>
+                    <ul>
+                        <li>Intelligence artificielle pour optimiser la croissance</li>
+                        <li>Capteurs IoT pour un contrôle total</li>
+                        <li>Réduction des pertes et du gaspillage</li>
+                        <li>Maximisation de la qualité et des marges</li>
+                    </ul>
+                </div>
+
+                <div class="mpf-reason-card mpf-reveal">
+                    <div class="mpf-reason-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3>Marché Premium</h3>
+                    <p>
+                        Les fraises blanches MPF sont des produits d'exception destinés à une clientèle haut de gamme.
+                        Cette rareté et cette qualité garantissent des marges élevées et une demande constante.
+                    </p>
+                    <ul>
+                        <li>Variété ultra-rare et recherchée</li>
+                        <li>Clientèle B2B et B2C premium</li>
+                        <li>Prix de vente élevés et stables</li>
+                        <li>Distribution France et International</li>
+                    </ul>
+                </div>
+
+                <div class="mpf-reason-card mpf-reveal">
+                    <div class="mpf-reason-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0110 0v4"/>
+                        </svg>
+                    </div>
+                    <h3>Propriété Certifiée</h3>
+                    <p>
+                        Chaque token MPF représente une part de propriété réelle et vérifiable sur la blockchain.
+                        Vos droits sont protégés par des smart contracts immuables et transparents.
+                    </p>
+                    <ul>
+                        <li>NFT/RWA certifié sur blockchain</li>
+                        <li>Smart contracts auditables</li>
+                        <li>Traçabilité complète de la production</li>
+                        <li>Sécurité cryptographique maximale</li>
+                    </ul>
+                </div>
+
+                <div class="mpf-reason-card mpf-reveal">
+                    <div class="mpf-reason-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M16 12l-4-4-4 4M12 16V8"/>
+                        </svg>
+                    </div>
+                    <h3>Liquidité & Flexibilité</h3>
+                    <p>
+                        Contrairement aux investissements agricoles traditionnels, vos tokens MPF sont liquides.
+                        Vendez-les sur notre marketplace secondaire quand vous le souhaitez.
+                    </p>
+                    <ul>
+                        <li>Marché secondaire actif</li>
+                        <li>Sortie possible à tout moment</li>
+                        <li>Prix transparent et en temps réel</li>
+                        <li>Transferts instantanés via blockchain</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Revenue Streams Section -->
+    <section class="mpf-revenue-section">
+        <div class="mpf-container">
+            <div class="mpf-section-header mpf-reveal">
+                <span class="mpf-section-tag">MODÈLE DE REVENUS</span>
+                <h2 class="mpf-section-title">Comment Vous Générez des Revenus</h2>
+                <p class="mpf-section-subtitle">
+                    En tant que détenteur de tokens MPF, vous participez à l'ensemble de la chaîne de valeur :
+                    de la production agricole à la transformation premium, chaque étape génère des revenus qui vous sont distribués automatiquement.
+                </p>
+            </div>
+
+            <div class="mpf-revenue-grid">
+                <div class="glass-card mpf-revenue-card mpf-reveal">
+                    <div class="mpf-revenue-badge">Source 1</div>
+                    <div class="mpf-web3-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M12 2v20M12 2c-2 0-3 1-3 3v2c0 2 1 3 3 3s3-1 3-3V5c0-2-1-3-3-3z"/>
+                            <path d="M12 10c-3 0-5 2-5 5v7h10v-7c0-3-2-5-5-5z"/>
+                        </svg>
+                    </div>
+                    <h3>Vente des Fraises Fraîches</h3>
+                    <p>
+                        Les fraises blanches MPF sont vendues en direct à des restaurants gastronomiques, épiceries fines et particuliers fortunés.
+                        Leur rareté et qualité exceptionnelle permettent des prix premium (15-25€ les 250g).
+                    </p>
+                    <p style="margin-top: 1rem; color: var(--accent-color); font-weight: 600;">
+                        → Revenus distribués à chaque vente
+                    </p>
+                </div>
+
+                <div class="glass-card mpf-revenue-card mpf-reveal">
+                    <div class="mpf-revenue-badge">Source 2</div>
+                    <div class="mpf-web3-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M20 7h-9M14 17H5M18 2L9 11l3 3 9-9-3-3z"/>
+                            <circle cx="7" cy="17" r="3"/>
+                        </svg>
+                    </div>
+                    <h3>Transformation Premium</h3>
+                    <p>
+                        Une partie de la récolte est transformée en produits gastronomiques haut de gamme (confitures, gelées, coulis).
+                        Cette valorisation multiplie la valeur initiale du fruit par 5 à 10.
+                    </p>
+                    <p style="margin-top: 1rem; color: var(--accent-color); font-weight: 600;">
+                        → Marge élevée redistribuée aux investisseurs
+                    </p>
+                </div>
+
+                <div class="glass-card mpf-revenue-card mpf-reveal">
+                    <div class="mpf-revenue-badge">Source 3</div>
+                    <div class="mpf-web3-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                    </div>
+                    <h3>Appréciation des Tokens</h3>
+                    <p>
+                        À mesure que MPF se développe et que sa production augmente, la valeur de vos tokens peut s'apprécier.
+                        Le marché secondaire vous permet de profiter de cette plus-value en revendant vos tokens.
+                    </p>
+                    <p style="margin-top: 1rem; color: var(--accent-color); font-weight: 600;">
+                        → Gains en capital potentiels
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="mpf-how-it-works">
+        <div class="mpf-container">
+            <div class="mpf-section-header mpf-reveal">
+                <span class="mpf-section-tag">COMMENT ÇA MARCHE</span>
+                <h2 class="mpf-section-title">Devenez Investisseur en 4 Étapes</h2>
+                <p class="mpf-section-subtitle">
+                    Investir dans MPF est simple, transparent et sécurisé. Suivez ces étapes pour commencer à générer
+                    des revenus passifs avec l'agriculture tokenisée.
+                </p>
+            </div>
+
+            <div class="mpf-steps-container">
+                <div class="mpf-step mpf-reveal">
+                    <div class="mpf-step-number">1</div>
+                    <div class="mpf-step-content">
+                        <h3>Créez Votre Compte Investisseur</h3>
+                        <p>
+                            Inscrivez-vous sur la plateforme MPF et créez votre wallet sécurisé. Le processus KYC (Know Your Customer)
+                            garantit la conformité réglementaire et la sécurité de tous les participants.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mpf-step mpf-reveal">
+                    <div class="mpf-step-number">2</div>
+                    <div class="mpf-step-content">
+                        <h3>Choisissez Vos Tokens de Production</h3>
+                        <p>
+                            Sélectionnez le ou les cycles de production dans lesquels vous souhaitez investir. Chaque cycle correspond
+                            à une période de culture complète (plantation → récolte → vente). Consultez les détails : durée, rendement estimé, prix par token.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mpf-step mpf-reveal">
+                    <div class="mpf-step-number">3</div>
+                    <div class="mpf-step-content">
+                        <h3>Recevez Vos Tokens MPF (NFT/RWA)</h3>
+                        <p>
+                            Une fois votre investissement confirmé, vous recevez vos tokens MPF directement dans votre wallet.
+                            Ces tokens sont des NFT/RWA représentant votre part de propriété sur la production. Ils sont traçables,
+                            vérifiables et transférables sur la blockchain.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mpf-step mpf-reveal">
+                    <div class="mpf-step-number">4</div>
+                    <div class="mpf-step-content">
+                        <h3>Recevez Vos Revenus Automatiquement</h3>
+                        <p>
+                            À chaque vente (fraises fraîches ou produits transformés), les smart contracts distribuent automatiquement
+                            votre part des revenus proportionnellement à vos tokens. Suivez en temps réel l'évolution de votre investissement
+                            et de vos gains sur votre dashboard personnel.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Technology Section -->
     <section class="mpf-tech-section">
         <div class="mpf-container">
             <div class="mpf-section-header mpf-reveal">
                 <span class="mpf-section-tag">TECHNOLOGIE INDOOR</span>
-                <h2 class="mpf-section-title">Culture Indoor Ultra-Connectée</h2>
+                <h2 class="mpf-section-title">Une Agriculture Ultra-Connectée et Automatisée</h2>
                 <p class="mpf-section-subtitle">
-                    Précision, IA et automatisation pour offrir aux plantes les conditions idéales de croissance
+                    MPF utilise les technologies les plus avancées pour garantir des récoltes optimales, réduire les risques
+                    et maximiser la rentabilité de votre investissement.
                 </p>
             </div>
 
@@ -745,7 +1263,7 @@
                         </svg>
                     </div>
                     <h4>IoT & Télémétrie</h4>
-                    <p>Réseau de capteurs (CO₂, température, humidité) avec données temps réel pour décisions agricoles optimales.</p>
+                    <p>Capteurs connectés surveillant CO₂, température, humidité en temps réel pour des décisions optimales.</p>
                 </div>
 
                 <div class="mpf-tech-feature mpf-reveal">
@@ -756,7 +1274,7 @@
                         </svg>
                     </div>
                     <h4>Lumière Adaptative</h4>
-                    <p>LEDs programmables, avec spectres optimisés pour chaque phase de croissance et développement des saveurs.</p>
+                    <p>LEDs programmables optimisant spectres et intensité pour chaque phase de croissance.</p>
                 </div>
 
                 <div class="mpf-tech-feature mpf-reveal">
@@ -767,7 +1285,7 @@
                         </svg>
                     </div>
                     <h4>Irrigation Intelligente</h4>
-                    <p>Distribution précise d'eau et de nutriments, prévention du stress hydrique grâce à l'IA prédictive.</p>
+                    <p>Distribution précise d'eau et nutriments pilotée par IA prédictive.</p>
                 </div>
 
                 <div class="mpf-tech-feature mpf-reveal">
@@ -777,22 +1295,19 @@
                         </svg>
                     </div>
                     <h4>Énergie Optimisée</h4>
-                    <p>Sources renouvelables, scénarios d'optimisation énergétique, et smart-grid pour réduction de l'empreinte carbone.</p>
+                    <p>Sources renouvelables et smart-grid pour réduire l'empreinte carbone et les coûts.</p>
                 </div>
 
                 <div class="mpf-tech-feature mpf-reveal">
                     <div class="mpf-tech-icon">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#9D2C20" stroke-width="2">
                             <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
-                            <polyline points="7.5 4.21 12 6.81 16.5 4.21"/>
-                            <polyline points="7.5 19.79 7.5 14.6 3 12"/>
-                            <polyline points="21 12 16.5 14.6 16.5 19.79"/>
                             <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
                             <line x1="12" y1="22.08" x2="12" y2="12"/>
                         </svg>
                     </div>
                     <h4>Intelligence Artificielle</h4>
-                    <p>Anticipation des besoins, optimisation de l'usage des ressources (eau, énergie, intrants) pour performance et durabilité.</p>
+                    <p>Anticipation des besoins et optimisation continue pour maximiser rendements et qualité.</p>
                 </div>
 
                 <div class="mpf-tech-feature mpf-reveal">
@@ -804,74 +1319,7 @@
                         </svg>
                     </div>
                     <h4>Monitoring Continu</h4>
-                    <p>Surveillance en temps réel, alertes automatiques et service d'une agriculture méthode, rigoureuse et prévisible.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Alliance Section -->
-    <section class="mpf-alliance-section">
-        <div class="mpf-container">
-            <div class="mpf-section-header mpf-reveal">
-                <span class="mpf-section-tag">ALLIANCE</span>
-                <h2 class="mpf-section-title">MPF Global & La Fraise Touch</h2>
-                <p class="mpf-section-subtitle">La Valorisation par l'Excellence</p>
-            </div>
-
-            <div class="mpf-alliance-content">
-                <div class="mpf-alliance-image mpf-reveal">
-                    <img src="https://www.mpf.clickdev.website/wp-content/uploads/2025/12/d966182d-c7fe-4ae3-bae9-07920ca1d271.png" alt="Panier de fraises blanches MPF">
-                </div>
-
-                <div class="mpf-alliance-text mpf-reveal">
-                    <h3>La Fraise Touch : L'Art de la Transformation</h3>
-                    <p>
-                        La Fraise Touch est un simple transformateur. C'est le bras armé de MPF Global pour la création de produits premium.
-                        Cette alliance stratégique garantit une valorisation maximale du fruit et une revenue de qualité supérieure.
-                    </p>
-
-                    <div class="mpf-alliance-benefits">
-                        <div class="mpf-benefit-item">
-                            <svg class="mpf-benefit-icon" viewBox="0 0 24 24" fill="none" stroke="#9D2C20" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            <div>
-                                <strong>Spécialisation Fraise Blanche</strong>
-                                <p>Produit unique de la culture et de la transformation de variétés ultra-premium</p>
-                            </div>
-                        </div>
-
-                        <div class="mpf-benefit-item">
-                            <svg class="mpf-benefit-icon" viewBox="0 0 24 24" fill="none" stroke="#9D2C20" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            <div>
-                                <strong>Valorisation Totale</strong>
-                                <p>100% de la récolte transformée, garantissant performance et zéro gaspillage</p>
-                            </div>
-                        </div>
-
-                        <div class="mpf-benefit-item">
-                            <svg class="mpf-benefit-icon" viewBox="0 0 24 24" fill="none" stroke="#9D2C20" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            <div>
-                                <strong>Contrôle Qualité Unifié</strong>
-                                <p>De la ferme MPF au packaging LFT, l'excellence est maintenue légendaire et confirmée</p>
-                            </div>
-                        </div>
-
-                        <div class="mpf-benefit-item">
-                            <svg class="mpf-benefit-icon" viewBox="0 0 24 24" fill="none" stroke="#9D2C20" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                            <div>
-                                <strong>Distribution Stratégique</strong>
-                                <p>LFT ouvre les portes des réseaux de distribution ciblés : épiceries fines, B2B, e-commerce</p>
-                            </div>
-                        </div>
-                    </div>
+                    <p>Surveillance 24/7, alertes automatiques et traçabilité complète de chaque cycle.</p>
                 </div>
             </div>
         </div>
@@ -881,71 +1329,62 @@
     <section class="mpf-web3-section">
         <div class="mpf-container">
             <div class="mpf-section-header mpf-reveal">
-                <span class="mpf-section-tag">FUTUR & WEB3</span>
-                <h2 class="mpf-section-title">Tokenisation : La Traçabilité et la<br>Valorisation à l'Ère du Web3</h2>
-                <p class="mpf-section-subtitle">
-                    MPF Global prépare l'intégration des technologies Web3 pour révolutionner la traçabilité et la propriété dans l'agriculture
+                <span class="mpf-section-tag">TECHNOLOGIE WEB3</span>
+                <h2 class="mpf-section-title">La Blockchain au Service de Votre Investissement</h2>
+            </div>
+
+            <div class="mpf-web3-intro mpf-reveal">
+                <p>
+                    MPF intègre les technologies Web3 pour offrir une transparence totale, une sécurité maximale et une liquidité inédite
+                    dans le secteur agricole. Chaque aspect de votre investissement est enregistré et vérifiable sur la blockchain.
                 </p>
             </div>
 
             <div class="mpf-web3-grid">
-                <div class="glass-card mpf-reveal">
-                    <div class="mpf-icon">
+                <div class="mpf-web3-benefit mpf-reveal">
+                    <div class="mpf-web3-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
                             <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
                             <path d="M7 11V7a5 5 0 0110 0v4"/>
                         </svg>
                     </div>
-                    <h3>Propriété Numérique</h3>
-                    <p>Chaque cycle (NFT) représente un droit de propriété d'un ou plusieurs actifs réels, transparent, inviolable et facilement transférable.</p>
+                    <h3>Tokens NFT/RWA Certifiés</h3>
+                    <p>
+                        Chaque token MPF est un NFT représentant un actif réel (RWA - Real World Asset). Votre propriété est inscrite
+                        sur la blockchain de manière immuable et inviolable.
+                    </p>
                 </div>
 
-                <div class="glass-card mpf-reveal">
-                    <div class="mpf-icon">
+                <div class="mpf-web3-benefit mpf-reveal">
+                    <div class="mpf-web3-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
                             <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
                         </svg>
                     </div>
-                    <h3>Traçabilité Infaillible</h3>
-                    <p>La blockchain sert comme de jumelle numérique. Chaque lot, quantité et valeur sont enregistrés, immuables et vérifiables.</p>
+                    <h3>Traçabilité Totale</h3>
+                    <p>
+                        De la plantation à la vente, chaque étape du cycle de production est enregistrée sur la blockchain.
+                        Consultez en temps réel l'évolution de vos investissements.
+                    </p>
                 </div>
 
-                <div class="glass-card mpf-reveal">
-                    <div class="mpf-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                            <line x1="12" y1="1" x2="12" y2="23"/>
-                            <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
-                        </svg>
-                    </div>
-                    <h3>Valorisation Concrète</h3>
-                    <p>La valeur de chaque token sera directement liée à la production réelle, qu'il s'agisse de la vente du fruit ou de sa transformation par LFT.</p>
-                </div>
-
-                <div class="glass-card mpf-reveal">
-                    <div class="mpf-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 6v6l4 2"/>
-                        </svg>
-                    </div>
-                    <h3>Un Actif Agricole Liquide</h3>
-                    <p>En transformant du fruit en actif numérique (tokens), nous créons une possibilité d'échange sur un marché secondaire, apportant liquidité et transparence.</p>
-                </div>
-
-                <div class="glass-card mpf-reveal">
-                    <div class="mpf-icon">
+                <div class="mpf-web3-benefit mpf-reveal">
+                    <div class="mpf-web3-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
                             <path d="M12 2L2 7l10 5 10-5-10-5z"/>
                             <path d="M2 17l10 5 10-5"/>
                             <path d="M2 12l10 5 10-5"/>
                         </svg>
                     </div>
-                    <h3>Smart Contracts</h3>
-                    <p>Logique de production, de partage de la valeur et du calendrier intégrée directement dans le code, automatique et sécurisée.</p>
+                    <h3>Smart Contracts Automatisés</h3>
+                    <p>
+                        Les revenus sont distribués automatiquement via smart contracts. Aucun intermédiaire, aucun délai :
+                        vous recevez votre part dès la vente confirmée.
+                    </p>
                 </div>
 
-                <div class="glass-card mpf-reveal">
-                    <div class="mpf-icon">
+                <div class="mpf-web3-benefit mpf-reveal">
+                    <div class="mpf-web3-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
                             <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
                             <circle cx="9" cy="7" r="4"/>
@@ -953,8 +1392,39 @@
                             <path d="M16 3.13a4 4 0 010 7.75"/>
                         </svg>
                     </div>
-                    <h3>Marché Secondaire</h3>
-                    <p>Une plateforme dédiée permettra aux détenteurs de tokens MPF de les échanger, créant un écosystème d'investissement agritech innovant.</p>
+                    <h3>Marketplace Secondaire</h3>
+                    <p>
+                        Besoin de liquidités ? Vendez vos tokens MPF sur notre marketplace. Prix en temps réel,
+                        transactions instantanées et sécurisées.
+                    </p>
+                </div>
+
+                <div class="mpf-web3-benefit mpf-reveal">
+                    <div class="mpf-web3-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+                        </svg>
+                    </div>
+                    <h3>Valorisation en Temps Réel</h3>
+                    <p>
+                        Suivez la valeur de vos tokens en temps réel sur votre dashboard. Performance, revenus accumulés,
+                        projections : tout est transparent et accessible 24/7.
+                    </p>
+                </div>
+
+                <div class="mpf-web3-benefit mpf-reveal">
+                    <div class="mpf-web3-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3>Dividendes Automatiques</h3>
+                    <p>
+                        À chaque vente, vos dividendes sont calculés et envoyés automatiquement. Pas de paperasse,
+                        pas d'attente : la blockchain fait tout le travail.
+                    </p>
                 </div>
             </div>
         </div>
@@ -964,15 +1434,19 @@
     <div class="mpf-container">
         <div class="mpf-section-header mpf-reveal">
             <span class="mpf-section-tag">ROADMAP</span>
-            <h2 class="mpf-section-title">Notre Trajectoire : D'Aujourd'hui à Demain</h2>
+            <h2 class="mpf-section-title">Notre Vision : D'Aujourd'hui à 2027+</h2>
+            <p class="mpf-section-subtitle">
+                MPF GROUP suit une trajectoire de croissance ambitieuse, de la ferme locale à l'expansion internationale.
+                En tant qu'investisseur précoce, vous participez à cette aventure dès le début.
+            </p>
         </div>
 
         <div class="mpf-timeline">
             <div class="mpf-timeline-item">
                 <div class="mpf-timeline-date">Avril 2024</div>
                 <div class="mpf-timeline-content glass-card">
-                    <h3>Création de Mon Plant Fraise (MPF)</h3>
-                    <p>Lancement de l'initiative "Mon Plant Fraise" (MPF) pour tester le module agritech et la culture de variétés d'exception, notamment la fraise blanche.</p>
+                    <h3>✅ Lancement Mon Plant Fraise</h3>
+                    <p>Démarrage réussi de notre ferme pilote et validation du modèle de culture indoor de fraises blanches premium.</p>
                 </div>
                 <div class="mpf-timeline-dot"></div>
             </div>
@@ -980,8 +1454,8 @@
             <div class="mpf-timeline-item">
                 <div class="mpf-timeline-date">Janvier 2025</div>
                 <div class="mpf-timeline-content glass-card">
-                    <h3>Structuration Juridique (SARL)</h3>
-                    <p>Mon Plant Fraise (MPF) se structure et devient officiellement une société à responsabilité limitée (SARL) pour pérenniser et développer son modèle économique.</p>
+                    <h3>✅ Structuration en SARL</h3>
+                    <p>Création de l'entité juridique MPF et ouverture aux premiers investisseurs privés.</p>
                 </div>
                 <div class="mpf-timeline-dot"></div>
             </div>
@@ -989,8 +1463,8 @@
             <div class="mpf-timeline-item">
                 <div class="mpf-timeline-date">Juillet 2025</div>
                 <div class="mpf-timeline-content glass-card">
-                    <h3>Lancement de La Fraise Touch (SAS)</h3>
-                    <p>Création de "La Fraise Touch" (LFT) sous forme de SAS. L'alliance stratégique est formée pour la transformation premium et la valorisation de 100% des récoltes.</p>
+                    <h3>🔄 Partenariat Transformation</h3>
+                    <p>Alliance stratégique pour la transformation premium et valorisation complète des récoltes.</p>
                 </div>
                 <div class="mpf-timeline-dot"></div>
             </div>
@@ -998,31 +1472,48 @@
             <div class="mpf-timeline-item">
                 <div class="mpf-timeline-date">Décembre 2025</div>
                 <div class="mpf-timeline-content glass-card">
-                    <h3>Ferme Indoor 2.0</h3>
-                    <p>Lancement de la Ferme Indoor 2.0, intégrant l'IA pour l'optimisation des ressources et la culture de haute précision à plus grande échelle.</p>
+                    <h3>🚀 Ferme Indoor 2.0</h3>
+                    <p>Expansion : nouvelle ferme high-tech avec IA intégrée et multiplication par 3 de la capacité de production.</p>
                 </div>
                 <div class="mpf-timeline-dot"></div>
             </div>
 
             <div class="mpf-timeline-item">
-                <div class="mpf-timeline-date">Objectif 2026</div>
+                <div class="mpf-timeline-date">2026</div>
                 <div class="mpf-timeline-content glass-card">
-                    <h3>Web3 & Tokenisation des Actifs</h3>
-                    <p>Déploiement de notre solution de tokenisation. Chaque cycle de production devient un actif numérique (NFT/RWA) assurant une traçabilité et une valorisation concrète.</p>
+                    <h3>🎯 Tokenisation Web3</h3>
+                    <p>Lancement de la plateforme de tokenisation. Les investisseurs peuvent désormais acheter, vendre et échanger leurs parts de production via NFT/RWA.</p>
                 </div>
                 <div class="mpf-timeline-dot"></div>
             </div>
 
             <div class="mpf-timeline-item">
-                <div class="mpf-timeline-date">Vision 2027+</div>
+                <div class="mpf-timeline-date">2027+</div>
                 <div class="mpf-timeline-content glass-card">
-                    <h3>Expansion Globale</h3>
-                    <p>Déploiement du modèle MPF Global à l'international et création d'un marché secondaire liquide pour les actifs agricoles tokenisés, redéfinissant l'investissement agritech.</p>
+                    <h3>🌍 Expansion Internationale</h3>
+                    <p>Déploiement du modèle MPF en Europe, puis à l'international. Création d'un écosystème global d'investissement agricole tokenisé.</p>
                 </div>
                 <div class="mpf-timeline-dot"></div>
             </div>
         </div>
     </div>
+
+    <!-- CTA Section -->
+    <section class="mpf-cta-section">
+        <div class="mpf-cta-content">
+            <h2>Prêt à Investir dans l'Agriculture de Demain ?</h2>
+            <p>
+                Rejoignez les investisseurs visionnaires qui transforment l'agriculture en actifs numériques rentables.
+                Générez des revenus passifs tout en participant à la révolution agritech.
+            </p>
+            <a href="#" class="mpf-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
+                Devenir Investisseur MPF
+            </a>
+        </div>
+    </section>
 
 </div>
 
