@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPF GROUP - L'agriculture devient haute technologie</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --accent-color: #9D2C20;
+            --accent-glow: rgba(157, 44, 32, 0.3);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.8);
+        }
+
+        body {
+            background: #000000;
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(157, 44, 32, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+            filter: brightness(0.6);
+        }
+
+        .hero-background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 0%, #000000 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1200px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h1 span {
+            color: var(--accent-color);
+            display: block;
+            font-size: 3rem;
+            margin-top: 0.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--accent-color);
+            color: white;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+
+        .btn-primary:hover {
+            background: #B53428;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--accent-glow);
+        }
+
+        .btn-secondary {
+            background: var(--glass-bg);
+            color: white;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Floating Strawberries Animation */
+        .floating-strawberries {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .strawberry {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            opacity: 0.3;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .strawberry:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .strawberry:nth-child(2) { left: 30%; animation-delay: 2s; }
+        .strawberry:nth-child(3) { left: 50%; animation-delay: 4s; }
+        .strawberry:nth-child(4) { left: 70%; animation-delay: 6s; }
+        .strawberry:nth-child(5) { left: 90%; animation-delay: 8s; }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Evolution Section */
+        .evolution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .evolution-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .evolution-card .card-number {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            font-size: 6rem;
+            font-weight: 900;
+            color: rgba(157, 44, 32, 0.1);
+            line-height: 1;
+        }
+
+        .evolution-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .evolution-card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .evolution-card .icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--accent-color), #D94436);
+            border-radius: 16px;
+            box-shadow: 0 8px 24px var(--accent-glow);
+        }
+
+        /* Technology Section */
+        .tech-section {
+            background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
+            padding: 6rem 2rem;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-feature {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .tech-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+        }
+
+        .tech-feature:hover .tech-icon {
+            background: rgba(157, 44, 32, 0.1);
+            border-color: var(--accent-color);
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .tech-feature h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-feature p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Alliance Section */
+        .alliance-section {
+            background: radial-gradient(circle at 50% 0%, rgba(157, 44, 32, 0.1) 0%, transparent 70%);
+            padding: 6rem 2rem;
+        }
+
+        .alliance-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .alliance-image {
+            position: relative;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .alliance-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 32px;
+            transition: transform 0.6s ease;
+        }
+
+        .alliance-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .alliance-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .alliance-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .alliance-benefits {
+            display: grid;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--glass-bg);
+            border-radius: 16px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(10px);
+        }
+
+        .benefit-icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        /* Web3 Section */
+        .web3-section {
+            background: #000000;
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .web3-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .web3-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 6rem auto;
+            padding: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, var(--accent-color), transparent);
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            grid-column: 2;
+        }
+
+        .timeline-item:nth-child(even) .timeline-date {
+            grid-column: 1;
+            grid-row: 1;
+            text-align: right;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            border: 4px solid #000;
+            box-shadow: 0 0 20px var(--accent-glow);
+            z-index: 2;
+        }
+
+        .timeline-date {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-content {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+            from {
+                filter: drop-shadow(0 0 5px rgba(157, 44, 32, 0.5));
+            }
+            to {
+                filter: drop-shadow(0 0 20px rgba(157, 44, 32, 0.8));
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-100px) rotate(5deg);
+            }
+            50% {
+                transform: translateY(-200px) rotate(-5deg);
+            }
+            75% {
+                transform: translateY(-300px) rotate(3deg);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.5;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h1 span {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .alliance-content {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item:nth-child(even) .timeline-content {
+                grid-column: 1;
+            }
+
+            .timeline-item:nth-child(even) .timeline-date {
+                grid-column: 1;
+                text-align: left;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .timeline-date,
+            .timeline-content {
+                padding-left: 60px;
+            }
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <img src="https://www.mpf.clickdev.website/wp-content/uploads/2025/12/03138b8b-9115-4836-a53a-2dd43deaf080.png" alt="MPF Group Indoor Farm">
+        </div>
+
+        <div class="floating-strawberries">
+            <img class="strawberry" src="https://www.mpf.clickdev.website/wp-content/uploads/2025/12/120e9f4e-a433-46f5-a87e-f51e576171d6.png" alt="Fraise blanche">
+            <img class="strawberry" src="https://www.mpf.clickdev.website/wp-content/uploads/2025/12/120e9f4e-a433-46f5-a87e-f51e576171d6.png" alt="Fraise blanche">
+            <img class="strawberry" src="https://www.mpf.clickdev.website/wp-content/uploads/2025/12/120e9f4e-a433-46f5-a87e-f51e576171d6.png" alt="Fraise blanche">
+            <img class="strawberry" src="https://www.mpf.clickdev.website/wp-content/uploads/2025/12/120e9f4e-a433-46f5-a87e-f51e576171d6.png" alt="Fraise blanche">
+            <img class="strawberry" src="https://www.mpf.clickdev.website/wp-content/uploads/2025/12/120e9f4e-a433-46f5-a87e-f51e576171d6.png" alt="Fraise blanche">
+        </div>
+
+        <div class="hero-content">
+            <div class="logo">MPF GROUP</div>
+            <h1>
+                L'agriculture devient
+                <span>haute technologie</span>
+            </h1>
+            <p class="hero-description">
+                De la première graine à l'actif numérique, notre vision a toujours été de combiner agronomie et technologie.
+                Découvrez notre parcours et nos ambitions futures.
+            </p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                    Entrer dans MPF
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    Découvrir LFT
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evolution Section -->
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-tag">ÉVOLUTION</span>
+            <h2 class="section-title">De Mon Plant Fraise à MPF Global</h2>
+            <p class="section-subtitle">
+                Notre modèle a d'abord structuré la culture et la valorisation de variétés d'exception.
+                Aujourd'hui, avec MPF Global, nous allons plus loin.
+            </p>
+        </div>
+
+        <div class="evolution-grid">
+            <div class="glass-card evolution-card reveal">
+                <div class="card-number">01</div>
+                <div class="icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M12 2v20M12 2c-2 0-3 1-3 3v2c0 2 1 3 3 3s3-1 3-3V5c0-2-1-3-3-3z"/>
+                        <path d="M12 10c-3 0-5 2-5 5v7h10v-7c0-3-2-5-5-5z"/>
+                    </svg>
+                </div>
+                <h3>Production Maîtrisée</h3>
+                <p>Fermes indoor avec contrôle total : irrigation, lumière, nutrition et photopériode optimisés selon nos standards environnementaux.</p>
+            </div>
+
+            <div class="glass-card evolution-card reveal">
+                <div class="card-number">02</div>
+                <div class="icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M20 7h-9M14 17H5M18 2L9 11l3 3 9-9-3-3z"/>
+                        <circle cx="7" cy="17" r="3"/>
+                    </svg>
+                </div>
+                <h3>Transformation Premium</h3>
+                <p>Une partie des récoltes est transformée en produits d'exception : gelées, confitures haute gastronomie avec un design et packaging à forte valeur perçue et réelle.</p>
+            </div>
+
+            <div class="glass-card evolution-card reveal">
+                <div class="card-number">03</div>
+                <div class="icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <rect x="2" y="7" width="20" height="14" rx="2"/>
+                        <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+                    </svg>
+                </div>
+                <h3>Distribution & Marque</h3>
+                <p>Commercialisation directe via B2B, B2C, en France et à l'international, avec une clientèle haut de gamme privilégiant l'expérience client irréprochable.</p>
+            </div>
+
+            <div class="glass-card evolution-card reveal">
+                <div class="card-number">04</div>
+                <div class="icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M12 2a10 10 0 1010 10H12V2z"/>
+                        <path d="M12 2v10l7.07 7.07A10 10 0 0012 2z"/>
+                    </svg>
+                </div>
+                <h3>Vente & Traçabilité</h3>
+                <p>Chaque fruit bénéficie d'un suivi complet. Nos solutions de tokenisation tracent l'intégralité de la chaîne, de la graine jusqu'au consommateur final.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technology Section -->
+    <section class="tech-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">TECHNOLOGIE INDOOR</span>
+                <h2 class="section-title">Culture Indoor Ultra-Connectée</h2>
+                <p class="section-subtitle">
+                    Précision, IA et automatisation pour offrir aux plantes les conditions idéales de croissance
+                </p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-feature reveal">
+                    <div class="tech-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#9D2C20" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h4>IoT & Télémétrie</h4>
+                    <p>Réseau de capteurs (CO₂, température, humidité) avec données temps réel pour décisions agricoles optimales.</p>
+                </div>
+
+                <div class="tech-feature reveal">
+                    <div class="tech-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#9D2C20" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/>
+                        </svg>
+                    </div>
+                    <h4>Lumière Adaptative</h4>
+                    <p>LEDs programmables, avec spectres optimisés pour chaque phase de croissance et développement des saveurs.</p>
+                </div>
+
+                <div class="tech-feature reveal">
+                    <div class="tech-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#9D2C20" stroke-width="2">
+                            <path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                    </div>
+                    <h4>Irrigation Intelligente</h4>
+                    <p>Distribution précise d'eau et de nutriments, prévention du stress hydrique grâce à l'IA prédictive.</p>
+                </div>
+
+                <div class="tech-feature reveal">
+                    <div class="tech-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#9D2C20" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </div>
+                    <h4>Énergie Optimisée</h4>
+                    <p>Sources renouvelables, scénarios d'optimisation énergétique, et smart-grid pour réduction de l'empreinte carbone.</p>
+                </div>
+
+                <div class="tech-feature reveal">
+                    <div class="tech-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#9D2C20" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                            <polyline points="7.5 4.21 12 6.81 16.5 4.21"/>
+                            <polyline points="7.5 19.79 7.5 14.6 3 12"/>
+                            <polyline points="21 12 16.5 14.6 16.5 19.79"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                    </div>
+                    <h4>Intelligence Artificielle</h4>
+                    <p>Anticipation des besoins, optimisation de l'usage des ressources (eau, énergie, intrants) pour performance et durabilité.</p>
+                </div>
+
+                <div class="tech-feature reveal">
+                    <div class="tech-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#9D2C20" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <polyline points="21 15 16 10 5 21"/>
+                        </svg>
+                    </div>
+                    <h4>Monitoring Continu</h4>
+                    <p>Surveillance en temps réel, alertes automatiques et service d'une agriculture méthode, rigoureuse et prévisible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alliance Section -->
+    <section class="alliance-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">ALLIANCE</span>
+                <h2 class="section-title">MPF Global & La Fraise Touch</h2>
+                <p class="section-subtitle">La Valorisation par l'Excellence</p>
+            </div>
+
+            <div class="alliance-content">
+                <div class="alliance-image reveal">
+                    <img src="https://www.mpf.clickdev.website/wp-content/uploads/2025/12/d966182d-c7fe-4ae3-bae9-07920ca1d271.png" alt="Panier de fraises blanches MPF">
+                </div>
+
+                <div class="alliance-text reveal">
+                    <h3>La Fraise Touch : L'Art de la Transformation</h3>
+                    <p>
+                        La Fraise Touch est un simple transformateur. C'est le bras armé de MPF Global pour la création de produits premium.
+                        Cette alliance stratégique garantit une valorisation maximale du fruit et une revenue de qualité supérieure.
+                    </p>
+
+                    <div class="alliance-benefits">
+                        <div class="benefit-item">
+                            <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="#9D2C20" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <div>
+                                <strong>Spécialisation Fraise Blanche</strong>
+                                <p>Produit unique de la culture et de la transformation de variétés ultra-premium</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="#9D2C20" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <div>
+                                <strong>Valorisation Totale</strong>
+                                <p>100% de la récolte transformée, garantissant performance et zéro gaspillage</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="#9D2C20" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <div>
+                                <strong>Contrôle Qualité Unifié</strong>
+                                <p>De la ferme MPF au packaging LFT, l'excellence est maintenue légendaire et confirmée</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="#9D2C20" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <div>
+                                <strong>Distribution Stratégique</strong>
+                                <p>LFT ouvre les portes des réseaux de distribution ciblés : épiceries fines, B2B, e-commerce</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Web3 Section -->
+    <section class="web3-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">FUTUR & WEB3</span>
+                <h2 class="section-title">Tokenisation : La Traçabilité et la<br>Valorisation à l'Ère du Web3</h2>
+                <p class="section-subtitle">
+                    MPF Global prépare l'intégration des technologies Web3 pour révolutionner la traçabilité et la propriété dans l'agriculture
+                </p>
+            </div>
+
+            <div class="web3-grid">
+                <div class="glass-card reveal">
+                    <div class="icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0110 0v4"/>
+                        </svg>
+                    </div>
+                    <h3>Propriété Numérique</h3>
+                    <p>Chaque cycle (NFT) représente un droit de propriété d'un ou plusieurs actifs réels, transparent, inviolable et facilement transférable.</p>
+                </div>
+
+                <div class="glass-card reveal">
+                    <div class="icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                    </div>
+                    <h3>Traçabilité Infaillible</h3>
+                    <p>La blockchain sert comme de jumelle numérique. Chaque lot, quantité et valeur sont enregistrés, immuables et vérifiables.</p>
+                </div>
+
+                <div class="glass-card reveal">
+                    <div class="icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+                        </svg>
+                    </div>
+                    <h3>Valorisation Concrète</h3>
+                    <p>La valeur de chaque token sera directement liée à la production réelle, qu'il s'agisse de la vente du fruit ou de sa transformation par LFT.</p>
+                </div>
+
+                <div class="glass-card reveal">
+                    <div class="icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3>Un Actif Agricole Liquide</h3>
+                    <p>En transformant du fruit en actif numérique (tokens), nous créons une possibilité d'échange sur un marché secondaire, apportant liquidité et transparence.</p>
+                </div>
+
+                <div class="glass-card reveal">
+                    <div class="icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3>Smart Contracts</h3>
+                    <p>Logique de production, de partage de la valeur et du calendrier intégrée directement dans le code, automatique et sécurisée.</p>
+                </div>
+
+                <div class="glass-card reveal">
+                    <div class="icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 010 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>Marché Secondaire</h3>
+                    <p>Une plateforme dédiée permettra aux détenteurs de tokens MPF de les échanger, créant un écosystème d'investissement agritech innovant.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-tag">ROADMAP</span>
+            <h2 class="section-title">Notre Trajectoire : D'Aujourd'hui à Demain</h2>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">Avril 2024</div>
+                <div class="timeline-content glass-card">
+                    <h3>Création de Mon Plant Fraise (MPF)</h3>
+                    <p>Lancement de l'initiative "Mon Plant Fraise" (MPF) pour tester le module agritech et la culture de variétés d'exception, notamment la fraise blanche.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Janvier 2025</div>
+                <div class="timeline-content glass-card">
+                    <h3>Structuration Juridique (SARL)</h3>
+                    <p>Mon Plant Fraise (MPF) se structure et devient officiellement une société à responsabilité limitée (SARL) pour pérenniser et développer son modèle économique.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Juillet 2025</div>
+                <div class="timeline-content glass-card">
+                    <h3>Lancement de La Fraise Touch (SAS)</h3>
+                    <p>Création de "La Fraise Touch" (LFT) sous forme de SAS. L'alliance stratégique est formée pour la transformation premium et la valorisation de 100% des récoltes.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Décembre 2025</div>
+                <div class="timeline-content glass-card">
+                    <h3>Ferme Indoor 2.0</h3>
+                    <p>Lancement de la Ferme Indoor 2.0, intégrant l'IA pour l'optimisation des ressources et la culture de haute précision à plus grande échelle.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Objectif 2026</div>
+                <div class="timeline-content glass-card">
+                    <h3>Web3 & Tokenisation des Actifs</h3>
+                    <p>Déploiement de notre solution de tokenisation. Chaque cycle de production devient un actif numérique (NFT/RWA) assurant une traçabilité et une valorisation concrète.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Vision 2027+</div>
+                <div class="timeline-content glass-card">
+                    <h3>Expansion Globale</h3>
+                    <p>Déploiement du modèle MPF Global à l'international et création d'un marché secondaire liquide pour les actifs agricoles tokenisés, redéfinissant l'investissement agritech.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Scroll Reveal Animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', reveal);
+        reveal(); // Initial check
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect for hero background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroBackground = document.querySelector('.hero-background img');
+            if (heroBackground) {
+                heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+
+</body>
+</html>
