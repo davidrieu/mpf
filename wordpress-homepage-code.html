@@ -170,30 +170,6 @@
         border-color: rgba(255, 255, 255, 0.3);
     }
 
-    /* Floating Strawberries Animation */
-    .mpf-floating-strawberries {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        pointer-events: none;
-        z-index: 1;
-    }
-
-    .mpf-strawberry {
-        position: absolute;
-        width: 60px;
-        height: 60px;
-        opacity: 0.3;
-        animation: float 15s infinite ease-in-out;
-    }
-
-    .mpf-strawberry:nth-child(1) { left: 10%; animation-delay: 0s; }
-    .mpf-strawberry:nth-child(2) { left: 30%; animation-delay: 2s; }
-    .mpf-strawberry:nth-child(3) { left: 50%; animation-delay: 4s; }
-    .mpf-strawberry:nth-child(4) { left: 70%; animation-delay: 6s; }
-    .mpf-strawberry:nth-child(5) { left: 90%; animation-delay: 8s; }
 
     /* Container */
     .mpf-container {
@@ -766,21 +742,6 @@
         }
     }
 
-    @keyframes float {
-        0%, 100% {
-            transform: translateY(0) rotate(0deg);
-        }
-        25% {
-            transform: translateY(-100px) rotate(5deg);
-        }
-        50% {
-            transform: translateY(-200px) rotate(-5deg);
-        }
-        75% {
-            transform: translateY(-300px) rotate(3deg);
-        }
-    }
-
     @keyframes pulse {
         0%, 100% {
             opacity: 0.5;
@@ -876,14 +837,6 @@
     <section class="mpf-hero">
         <div class="mpf-hero-background">
             <img src="https://www.mpf.clickdev.website/wp-content/uploads/2025/12/03138b8b-9115-4836-a53a-2dd43deaf080.png" alt="MPF Group Indoor Farm">
-        </div>
-
-        <div class="mpf-floating-strawberries">
-            <img class="mpf-strawberry" src="https://www.mpf.clickdev.website/wp-content/uploads/2025/12/120e9f4e-a433-46f5-a87e-f51e576171d6.png" alt="Fraise blanche">
-            <img class="mpf-strawberry" src="https://www.mpf.clickdev.website/wp-content/uploads/2025/12/120e9f4e-a433-46f5-a87e-f51e576171d6.png" alt="Fraise blanche">
-            <img class="mpf-strawberry" src="https://www.mpf.clickdev.website/wp-content/uploads/2025/12/120e9f4e-a433-46f5-a87e-f51e576171d6.png" alt="Fraise blanche">
-            <img class="mpf-strawberry" src="https://www.mpf.clickdev.website/wp-content/uploads/2025/12/120e9f4e-a433-46f5-a87e-f51e576171d6.png" alt="Fraise blanche">
-            <img class="mpf-strawberry" src="https://www.mpf.clickdev.website/wp-content/uploads/2025/12/120e9f4e-a433-46f5-a87e-f51e576171d6.png" alt="Fraise blanche">
         </div>
 
         <div class="mpf-hero-content">
