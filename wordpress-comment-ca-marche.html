@@ -25,19 +25,19 @@
 /* Hero Section */
 .mpf-how-hero {
     text-align: center;
-    padding: 80px 20px 120px;
+    padding: 80px 20px 60px;
     position: relative;
 }
 
 .mpf-how-hero::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: -200px;
     left: 50%;
     transform: translateX(-50%);
-    width: 800px;
-    height: 800px;
-    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    width: 1200px;
+    height: 1200px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, rgba(157, 44, 32, 0.15) 40%, transparent 65%);
     pointer-events: none;
     z-index: 0;
 }
@@ -82,11 +82,14 @@
 /* Process Steps Section */
 .mpf-how-section {
     padding: 80px 20px;
+    position: relative;
 }
 
 .mpf-how-section-title {
     text-align: center;
     margin-bottom: 60px;
+    position: relative;
+    z-index: 1;
 }
 
 .mpf-how-section-title h2 {
@@ -107,6 +110,8 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
     margin-top: 40px;
+    position: relative;
+    z-index: 1;
 }
 
 .mpf-step-card {
