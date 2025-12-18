@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - MPF GROUP</title>
+</head>
+<body>
+
+<style>
+:root {
+    --accent-color: #9D2C20;
+    --accent-glow: rgba(157, 44, 32, 0.3);
+    --text-primary: #FFFFFF;
+    --text-secondary: rgba(255, 255, 255, 0.8);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+.mpf-contact-page {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+}
+
+.mpf-contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero Section */
+.mpf-contact-hero {
+    text-align: center;
+    padding: 80px 20px 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.mpf-contact-hero::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle, var(--accent-color) 2px, transparent 2px),
+        radial-gradient(circle, var(--accent-color) 2px, transparent 2px);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.mpf-contact-hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.mpf-contact-badge {
+    display: inline-block;
+    padding: 8px 20px;
+    background: rgba(157, 44, 32, 0.15);
+    border: 1px solid rgba(157, 44, 32, 0.3);
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.mpf-contact-hero h1 {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0 0 20px;
+    background: linear-gradient(135deg, #FFFFFF 0%, rgba(255, 255, 255, 0.7) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.mpf-contact-hero p {
+    font-size: 20px;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+/* Contact Section */
+.mpf-contact-section {
+    padding: 80px 20px;
+}
+
+.mpf-contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    margin-top: 40px;
+}
+
+/* Info Cards */
+.mpf-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.mpf-info-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 32px;
+    transition: all 0.4s ease;
+}
+
+.mpf-info-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(157, 44, 32, 0.3);
+    box-shadow: 0 16px 48px var(--accent-glow);
+}
+
+.mpf-info-icon {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, var(--accent-color), #D94436);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 24px var(--accent-glow);
+}
+
+.mpf-info-icon svg {
+    width: 28px;
+    height: 28px;
+    fill: white;
+}
+
+.mpf-info-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 12px;
+}
+
+.mpf-info-card p {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.mpf-info-card a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.3s ease;
+}
+
+.mpf-info-card a:hover {
+    opacity: 0.8;
+}
+
+/* Form Container */
+.mpf-form-container {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 48px;
+}
+
+.mpf-form-container h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 12px;
+}
+
+.mpf-form-container > p {
+    color: var(--text-secondary);
+    margin: 0 0 32px;
+    font-size: 16px;
+}
+
+/* Contact Form 7 Styling */
+.wpcf7-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.wpcf7-form p {
+    margin: 0;
+}
+
+.wpcf7-form label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.wpcf7-form input[type="text"],
+.wpcf7-form input[type="email"],
+.wpcf7-form input[type="tel"],
+.wpcf7-form input[type="url"],
+.wpcf7-form select,
+.wpcf7-form textarea {
+    width: 100%;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    color: var(--text-primary);
+    font-size: 16px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.wpcf7-form input[type="text"]:focus,
+.wpcf7-form input[type="email"]:focus,
+.wpcf7-form input[type="tel"]:focus,
+.wpcf7-form input[type="url"]:focus,
+.wpcf7-form select:focus,
+.wpcf7-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(157, 44, 32, 0.1);
+}
+
+.wpcf7-form input::placeholder,
+.wpcf7-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.wpcf7-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.wpcf7-form input[type="submit"] {
+    padding: 18px 48px;
+    background: linear-gradient(135deg, var(--accent-color), #D94436);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 12px 32px var(--accent-glow);
+    width: auto;
+    align-self: flex-start;
+}
+
+.wpcf7-form input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px var(--accent-glow);
+}
+
+.wpcf7-form input[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Form Validation */
+.wpcf7-not-valid-tip {
+    color: #ff6b6b;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.wpcf7-validation-errors,
+.wpcf7-acceptance-missing {
+    background: rgba(255, 107, 107, 0.1);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    border-radius: 12px;
+    padding: 16px;
+    color: #ff6b6b;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.wpcf7-mail-sent-ok {
+    background: rgba(76, 217, 100, 0.1);
+    border: 1px solid rgba(76, 217, 100, 0.3);
+    border-radius: 12px;
+    padding: 16px;
+    color: #4cd964;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.wpcf7-spinner {
+    margin-left: 16px;
+}
+
+/* Form Row */
+.mpf-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .mpf-contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .mpf-form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .mpf-contact-hero h1 {
+        font-size: 38px;
+    }
+
+    .mpf-contact-hero p {
+        font-size: 18px;
+    }
+
+    .mpf-form-container {
+        padding: 32px 24px;
+    }
+
+    .mpf-form-container h2 {
+        font-size: 28px;
+    }
+
+    .wpcf7-form input[type="submit"] {
+        width: 100%;
+    }
+}
+
+/* Scroll Reveal Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mpf-reveal {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.mpf-reveal:nth-child(1) { animation-delay: 0.1s; }
+.mpf-reveal:nth-child(2) { animation-delay: 0.2s; }
+.mpf-reveal:nth-child(3) { animation-delay: 0.3s; }
+</style>
+
+<div class="mpf-contact-page">
+
+    <!-- Hero Section -->
+    <section class="mpf-contact-hero">
+        <div class="mpf-contact-container">
+            <div class="mpf-contact-hero-content">
+                <span class="mpf-contact-badge">Contactez-nous</span>
+                <h1>Parlons de votre projet</h1>
+                <p>Notre équipe est à votre disposition pour répondre à toutes vos questions sur l'investissement dans MPF GROUP.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="mpf-contact-section">
+        <div class="mpf-contact-container">
+            <div class="mpf-contact-grid">
+
+                <!-- Contact Info -->
+                <div class="mpf-contact-info">
+                    <div class="mpf-info-card mpf-reveal">
+                        <div class="mpf-info-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                        </div>
+                        <h3>Email</h3>
+                        <p>Écrivez-nous directement</p>
+                        <a href="mailto:contact@mpfgroup.com">contact@mpfgroup.com</a>
+                    </div>
+
+                    <div class="mpf-info-card mpf-reveal">
+                        <div class="mpf-info-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                        </div>
+                        <h3>Téléphone</h3>
+                        <p>Appelez-nous du lundi au vendredi</p>
+                        <a href="tel:+33123456789">+33 1 23 45 67 89</a>
+                    </div>
+
+                    <div class="mpf-info-card mpf-reveal">
+                        <div class="mpf-info-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                        </div>
+                        <h3>Adresse</h3>
+                        <p>Visitez nos bureaux</p>
+                        <p>123 Avenue de l'Innovation<br>75001 Paris, France</p>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="mpf-form-container mpf-reveal">
+                    <h2>Envoyez-nous un message</h2>
+                    <p>Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.</p>
+
+                    [contact-form-7 id="ae1e412" title="Contact Form"]
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<script>
+// Simple scroll reveal animation
+document.addEventListener('DOMContentLoaded', function() {
+    const reveals = document.querySelectorAll('.mpf-reveal');
+
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    reveals.forEach(reveal => {
+        observer.observe(reveal);
+    });
+});
+</script>
+
+</body>
+</html>

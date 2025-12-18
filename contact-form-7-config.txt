@@ -1,0 +1,188 @@
+═══════════════════════════════════════════════════════════════════
+  CONFIGURATION CONTACT FORM 7 - MPF GROUP
+═══════════════════════════════════════════════════════════════════
+
+Instructions:
+1. Allez dans WordPress Admin → Contact → Formulaires de Contact
+2. Éditez le formulaire avec l'ID "ae1e412" (ou créez-en un nouveau)
+3. Copiez-collez le code ci-dessous dans l'onglet "Formulaire"
+
+═══════════════════════════════════════════════════════════════════
+  CODE DU FORMULAIRE
+═══════════════════════════════════════════════════════════════════
+
+<div class="mpf-form-row">
+    <p>
+        <label>Prénom *<br>
+        [text* prenom placeholder "Votre prénom"]</label>
+    </p>
+
+    <p>
+        <label>Nom *<br>
+        [text* nom placeholder "Votre nom"]</label>
+    </p>
+</div>
+
+<div class="mpf-form-row">
+    <p>
+        <label>Email *<br>
+        [email* email placeholder "votre@email.com"]</label>
+    </p>
+
+    <p>
+        <label>Téléphone<br>
+        [tel telephone placeholder "+33 6 12 34 56 78"]</label>
+    </p>
+</div>
+
+<p>
+    <label>Sujet *<br>
+    [select* sujet "Investissement" "Partenariat" "Information générale" "Support technique" "Autre"]</label>
+</p>
+
+<p>
+    <label>Message *<br>
+    [textarea* message placeholder "Décrivez votre demande en détail..."]</label>
+</p>
+
+<p>
+    [submit "Envoyer le message"]
+</p>
+
+═══════════════════════════════════════════════════════════════════
+  CONFIGURATION EMAIL (Onglet "Mail")
+═══════════════════════════════════════════════════════════════════
+
+À :
+contact@mpfgroup.com
+
+De :
+[prenom] [nom] <[email]>
+
+Sujet :
+[Nouveau message] [sujet] - MPF GROUP
+
+En-têtes supplémentaires :
+Reply-To: [email]
+
+Corps du message :
+Nouveau message reçu via le formulaire de contact MPF GROUP
+
+──────────────────────────────────────
+INFORMATIONS DU CONTACT
+──────────────────────────────────────
+Prénom: [prenom]
+Nom: [nom]
+Email: [email]
+Téléphone: [telephone]
+Sujet: [sujet]
+
+──────────────────────────────────────
+MESSAGE
+──────────────────────────────────────
+[message]
+
+──────────────────────────────────────
+Ce message a été envoyé depuis le site MPF GROUP
+
+═══════════════════════════════════════════════════════════════════
+  CONFIGURATION EMAIL 2 (Onglet "Mail (2)") - OPTIONNEL
+  Mail de confirmation pour l'utilisateur
+═══════════════════════════════════════════════════════════════════
+
+Cochez la case "Mail (2)" pour activer l'auto-réponse
+
+À :
+[email]
+
+De :
+MPF GROUP <contact@mpfgroup.com>
+
+Sujet :
+Nous avons bien reçu votre message - MPF GROUP
+
+En-têtes supplémentaires :
+Reply-To: contact@mpfgroup.com
+
+Corps du message :
+Bonjour [prenom],
+
+Nous avons bien reçu votre message concernant : [sujet]
+
+Notre équipe reviendra vers vous dans les plus brefs délais, généralement sous 24 heures ouvrées.
+
+En attendant, n'hésitez pas à consulter notre page "Comment ça marche" pour en savoir plus sur nos solutions d'investissement.
+
+──────────────────────────────────────
+RÉCAPITULATIF DE VOTRE MESSAGE
+──────────────────────────────────────
+Sujet: [sujet]
+Message: [message]
+
+──────────────────────────────────────
+
+Cordialement,
+L'équipe MPF GROUP
+
+═══════════════════════════════════════════════════════════════════
+  MESSAGES (Onglet "Messages")
+═══════════════════════════════════════════════════════════════════
+
+Message envoyé avec succès :
+Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.
+
+Échec de l'envoi du message :
+Une erreur s'est produite lors de l'envoi. Veuillez réessayer ou nous contacter directement.
+
+Erreur de validation :
+Un ou plusieurs champs contiennent des erreurs. Veuillez vérifier et réessayer.
+
+Spam détecté :
+Votre message a été identifié comme spam. Si c'est une erreur, contactez-nous directement.
+
+Confirmation obligatoire non cochée :
+Veuillez accepter les conditions avant d'envoyer le formulaire.
+
+Champ obligatoire non rempli :
+Ce champ est obligatoire.
+
+Validation du formulaire échouée :
+La validation a échoué. Veuillez vérifier vos informations.
+
+Format de champ incorrect :
+Le format du champ est incorrect.
+
+Format d'email incorrect :
+L'adresse email n'est pas valide.
+
+Format de téléphone incorrect :
+Le numéro de téléphone n'est pas valide.
+
+═══════════════════════════════════════════════════════════════════
+  PARAMÈTRES SUPPLÉMENTAIRES (Optionnel)
+═══════════════════════════════════════════════════════════════════
+
+Dans l'onglet "Paramètres additionnels", vous pouvez ajouter :
+
+# Redirection après envoi (optionnel)
+on_sent_ok: "location = 'https://votresite.com/merci';"
+
+# Désactiver AJAX (si besoin)
+ajax: false
+
+# Accepter les soumissions depuis d'autres domaines
+demo_mode: on
+
+═══════════════════════════════════════════════════════════════════
+  NOTES
+═══════════════════════════════════════════════════════════════════
+
+✓ Le formulaire utilise déjà le bon ID : ae1e412
+✓ Le CSS est déjà intégré dans wordpress-contact.html
+✓ Les champs Prénom, Nom, Email, Téléphone, Sujet et Message sont inclus
+✓ Validation HTML5 intégrée pour les champs requis (*)
+✓ Design glassmorphism cohérent avec le reste du site
+✓ Responsive et adapté mobile
+✓ Animations de focus sur les champs
+
+═══════════════════════════════════════════════════════════════════
