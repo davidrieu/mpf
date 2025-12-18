@@ -1,0 +1,1147 @@
+<style>
+:root {
+    --accent-color: #9D2C20;
+    --accent-glow: rgba(157, 44, 32, 0.3);
+    --text-primary: #FFFFFF;
+    --text-secondary: rgba(255, 255, 255, 0.8);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+.mpf-faq-page {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+}
+
+.mpf-faq-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero Section */
+.mpf-faq-hero {
+    text-align: center;
+    padding: 80px 20px 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.mpf-faq-hero::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle, var(--accent-color) 2px, transparent 2px),
+        radial-gradient(circle, var(--accent-color) 2px, transparent 2px);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.mpf-faq-hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.mpf-faq-badge {
+    display: inline-block;
+    padding: 8px 20px;
+    background: rgba(157, 44, 32, 0.15);
+    border: 1px solid rgba(157, 44, 32, 0.3);
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.mpf-faq-hero h1 {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0 0 20px;
+    background: linear-gradient(135deg, #FFFFFF 0%, rgba(255, 255, 255, 0.7) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.mpf-faq-hero p {
+    font-size: 20px;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+/* Search Bar */
+.mpf-search-container {
+    max-width: 700px;
+    margin: 40px auto 0;
+    position: relative;
+    z-index: 1;
+}
+
+.mpf-search-wrapper {
+    position: relative;
+}
+
+.mpf-search-icon {
+    position: absolute;
+    left: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+}
+
+.mpf-search-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--text-secondary);
+}
+
+.mpf-search-input {
+    width: 100%;
+    padding: 20px 24px 20px 64px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 2px solid var(--glass-border);
+    border-radius: 50px;
+    color: var(--text-primary);
+    font-size: 18px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.mpf-search-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 4px rgba(157, 44, 32, 0.1);
+}
+
+.mpf-search-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.mpf-search-clear {
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(157, 44, 32, 0.2);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mpf-search-clear:hover {
+    background: var(--accent-color);
+}
+
+.mpf-search-clear svg {
+    width: 16px;
+    height: 16px;
+    fill: white;
+}
+
+.mpf-search-clear.active {
+    display: flex;
+}
+
+/* Search Results Count */
+.mpf-search-results {
+    text-align: center;
+    margin: 24px 0;
+    font-size: 16px;
+    color: var(--text-secondary);
+    display: none;
+}
+
+.mpf-search-results.active {
+    display: block;
+}
+
+.mpf-search-results strong {
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+/* FAQ Section */
+.mpf-faq-section {
+    padding: 80px 20px;
+}
+
+.mpf-category {
+    margin-bottom: 60px;
+}
+
+.mpf-category-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 32px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.mpf-category-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--accent-color), #D94436);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px var(--accent-glow);
+}
+
+.mpf-category-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+}
+
+/* FAQ Items */
+.mpf-faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.mpf-faq-item {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.mpf-faq-item:hover {
+    border-color: rgba(157, 44, 32, 0.3);
+}
+
+.mpf-faq-item.active {
+    border-color: var(--accent-color);
+    box-shadow: 0 8px 32px var(--accent-glow);
+}
+
+.mpf-faq-item.hidden {
+    display: none;
+}
+
+.mpf-faq-question {
+    padding: 24px 28px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+}
+
+.mpf-faq-question:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.mpf-faq-question h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.mpf-faq-icon {
+    width: 32px;
+    height: 32px;
+    background: rgba(157, 44, 32, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.mpf-faq-item.active .mpf-faq-icon {
+    background: var(--accent-color);
+    transform: rotate(180deg);
+}
+
+.mpf-faq-icon svg {
+    width: 16px;
+    height: 16px;
+    fill: white;
+}
+
+.mpf-faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.mpf-faq-answer-content {
+    padding: 0 28px 28px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.mpf-faq-item.active .mpf-faq-answer {
+    max-height: 1000px;
+}
+
+.mpf-faq-answer-content p {
+    margin: 0 0 12px;
+}
+
+.mpf-faq-answer-content p:last-child {
+    margin: 0;
+}
+
+.mpf-faq-answer-content ul {
+    margin: 12px 0;
+    padding-left: 20px;
+}
+
+.mpf-faq-answer-content li {
+    margin: 8px 0;
+}
+
+/* No Results */
+.mpf-no-results {
+    text-align: center;
+    padding: 80px 20px;
+    display: none;
+}
+
+.mpf-no-results.active {
+    display: block;
+}
+
+.mpf-no-results-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(157, 44, 32, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+}
+
+.mpf-no-results-icon svg {
+    width: 40px;
+    height: 40px;
+    fill: var(--accent-color);
+}
+
+.mpf-no-results h3 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 12px;
+}
+
+.mpf-no-results p {
+    color: var(--text-secondary);
+    font-size: 16px;
+    margin: 0;
+}
+
+/* CTA Section */
+.mpf-faq-cta {
+    padding: 80px 20px 100px;
+    text-align: center;
+}
+
+.mpf-cta-card {
+    background: linear-gradient(135deg, var(--accent-color), #D94436);
+    border-radius: 32px;
+    padding: 60px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 24px 80px var(--accent-glow);
+}
+
+.mpf-cta-card h2 {
+    font-size: 42px;
+    font-weight: 800;
+    margin: 0 0 16px;
+    color: white;
+}
+
+.mpf-cta-card p {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 32px;
+}
+
+.mpf-cta-button {
+    display: inline-block;
+    padding: 18px 48px;
+    background: white;
+    color: var(--accent-color);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.mpf-cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .mpf-faq-hero h1 {
+        font-size: 38px;
+    }
+
+    .mpf-faq-hero p {
+        font-size: 18px;
+    }
+
+    .mpf-search-input {
+        font-size: 16px;
+        padding: 18px 20px 18px 56px;
+    }
+
+    .mpf-category-title {
+        font-size: 26px;
+    }
+
+    .mpf-faq-question {
+        padding: 20px 20px;
+    }
+
+    .mpf-faq-question h3 {
+        font-size: 16px;
+    }
+
+    .mpf-faq-answer-content {
+        padding: 0 20px 24px;
+    }
+
+    .mpf-cta-card h2 {
+        font-size: 32px;
+    }
+}
+
+/* Scroll Reveal Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mpf-reveal {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.mpf-reveal:nth-child(1) { animation-delay: 0.1s; }
+.mpf-reveal:nth-child(2) { animation-delay: 0.2s; }
+.mpf-reveal:nth-child(3) { animation-delay: 0.3s; }
+.mpf-reveal:nth-child(4) { animation-delay: 0.4s; }
+.mpf-reveal:nth-child(5) { animation-delay: 0.5s; }
+.mpf-reveal:nth-child(6) { animation-delay: 0.6s; }
+
+/* Highlight search terms */
+.highlight {
+    background: rgba(157, 44, 32, 0.3);
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+</style>
+
+<div class="mpf-faq-page">
+
+    <!-- Hero Section -->
+    <section class="mpf-faq-hero">
+        <div class="mpf-faq-container">
+            <div class="mpf-faq-hero-content">
+                <span class="mpf-faq-badge">Aide & Support</span>
+                <h1>Questions Fréquentes</h1>
+                <p>Trouvez rapidement les réponses à vos questions sur MPF GROUP et l'investissement agricole.</p>
+
+                <!-- Search Bar -->
+                <div class="mpf-search-container">
+                    <div class="mpf-search-wrapper">
+                        <div class="mpf-search-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                            </svg>
+                        </div>
+                        <input
+                            type="text"
+                            class="mpf-search-input"
+                            id="faqSearch"
+                            placeholder="Rechercher une question..."
+                            autocomplete="off"
+                        />
+                        <button class="mpf-search-clear" id="clearSearch">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mpf-search-results" id="searchResults"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="mpf-faq-section">
+        <div class="mpf-faq-container">
+
+            <!-- Category: Investissement -->
+            <div class="mpf-category mpf-reveal" data-category="investissement">
+                <h2 class="mpf-category-title">
+                    <div class="mpf-category-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+                        </svg>
+                    </div>
+                    Investissement
+                </h2>
+                <div class="mpf-faq-list">
+                    <div class="mpf-faq-item" data-keywords="investir montant minimum commencer débuter">
+                        <div class="mpf-faq-question">
+                            <h3>Quel est le montant minimum pour investir dans MPF GROUP ?</h3>
+                            <div class="mpf-faq-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mpf-faq-answer">
+                            <div class="mpf-faq-answer-content">
+                                <p>Le montant minimum pour commencer à investir avec MPF GROUP est de <strong>100€</strong>. Cela permet à un large public d'accéder à l'investissement dans l'agriculture indoor et la blockchain.</p>
+                                <p>Vous pouvez augmenter votre investissement progressivement selon vos moyens et objectifs financiers.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mpf-faq-item" data-keywords="rendement rentabilité gain retour investissement">
+                        <div class="mpf-faq-question">
+                            <h3>Quel est le rendement attendu sur mon investissement ?</h3>
+                            <div class="mpf-faq-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mpf-faq-answer">
+                            <div class="mpf-faq-answer-content">
+                                <p>MPF GROUP propose des <strong>rendements fixes prévisibles</strong> versés mensuellement. Le taux de rendement exact dépend du contrat que vous choisissez et est clairement indiqué avant votre investissement.</p>
+                                <p>Tous les détails sont transparents et spécifiés dans votre contrat d'investissement.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mpf-faq-item" data-keywords="risque sécurité garantie perte">
+                        <div class="mpf-faq-question">
+                            <h3>Quels sont les risques liés à l'investissement ?</h3>
+                            <div class="mpf-faq-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mpf-faq-answer">
+                            <div class="mpf-faq-answer-content">
+                                <p>Comme tout investissement, il existe des risques. MPF GROUP met en place plusieurs mesures pour les minimiser :</p>
+                                <ul>
+                                    <li>Agriculture indoor contrôlée (pas de dépendance météo)</li>
+                                    <li>Diversification des cycles de production</li>
+                                    <li>Contrats clairs avec rendements fixes</li>
+                                    <li>Tokenisation blockchain pour la transparence</li>
+                                </ul>
+                                <p>Nous vous recommandons de lire attentivement tous les documents avant d'investir.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Plateforme et Compte -->
+            <div class="mpf-category mpf-reveal" data-category="compte">
+                <h2 class="mpf-category-title">
+                    <div class="mpf-category-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                        </svg>
+                    </div>
+                    Plateforme et Compte
+                </h2>
+                <div class="mpf-faq-list">
+                    <div class="mpf-faq-item" data-keywords="inscription créer compte ouvrir commencer">
+                        <div class="mpf-faq-question">
+                            <h3>Comment créer mon compte investisseur ?</h3>
+                            <div class="mpf-faq-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mpf-faq-answer">
+                            <div class="mpf-faq-answer-content">
+                                <p>La création de compte est simple et rapide :</p>
+                                <ul>
+                                    <li>Cliquez sur "Créer un compte" ou "S'inscrire"</li>
+                                    <li>Remplissez vos informations personnelles</li>
+                                    <li>Validez votre email</li>
+                                    <li>Pour les investissements supérieurs à 3000€, une vérification téléphonique sera demandée</li>
+                                </ul>
+                                <p>L'inscription est <strong>100% gratuite</strong> et ne prend que quelques minutes.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mpf-faq-item" data-keywords="kyc vérification identité document">
+                        <div class="mpf-faq-question">
+                            <h3>Dois-je fournir des documents d'identité (KYC) ?</h3>
+                            <div class="mpf-faq-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mpf-faq-answer">
+                            <div class="mpf-faq-answer-content">
+                                <p>La vérification KYC (Know Your Customer) dépend du montant de votre investissement :</p>
+                                <ul>
+                                    <li><strong>Moins de 3000€</strong> : Vérification email uniquement</li>
+                                    <li><strong>Plus de 3000€</strong> : Vérification téléphonique + documents d'identité</li>
+                                </ul>
+                                <p>Cette procédure est obligatoire pour garantir la sécurité de tous les investisseurs et se conformer à la réglementation.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mpf-faq-item" data-keywords="tableau bord dashboard accès suivre">
+                        <div class="mpf-faq-question">
+                            <h3>Comment accéder à mon tableau de bord ?</h3>
+                            <div class="mpf-faq-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mpf-faq-answer">
+                            <div class="mpf-faq-answer-content">
+                                <p>Une fois connecté, vous accédez automatiquement à votre tableau de bord personnalisé qui comprend :</p>
+                                <ul>
+                                    <li>Vue d'ensemble de vos investissements</li>
+                                    <li>Suivi de vos récoltes en cours</li>
+                                    <li>Historique de vos revenus</li>
+                                    <li>Vos documents contractuels</li>
+                                    <li>Options de parrainage</li>
+                                </ul>
+                                <p>Votre dashboard est accessible 24/7 depuis n'importe quel appareil.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Contrats et Paiements -->
+            <div class="mpf-category mpf-reveal" data-category="contrats">
+                <h2 class="mpf-category-title">
+                    <div class="mpf-category-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                    </div>
+                    Contrats et Paiements
+                </h2>
+                <div class="mpf-faq-list">
+                    <div class="mpf-faq-item" data-keywords="durée contrat temps mois cycle">
+                        <div class="mpf-faq-question">
+                            <h3>Quelle est la durée d'un contrat d'investissement ?</h3>
+                            <div class="mpf-faq-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mpf-faq-answer">
+                            <div class="mpf-faq-answer-content">
+                                <p>La durée standard d'un contrat MPF GROUP est de <strong>12 mois</strong>.</p>
+                                <p>À la fin du contrat, vous avez plusieurs options :</p>
+                                <ul>
+                                    <li>Retirer votre capital + derniers revenus</li>
+                                    <li>Réinvestir automatiquement pour un nouveau cycle</li>
+                                    <li>Moduler votre investissement (augmenter ou diminuer)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mpf-faq-item" data-keywords="paiement méthode carte virement crypto 12 fois">
+                        <div class="mpf-faq-question">
+                            <h3>Quels modes de paiement sont acceptés ?</h3>
+                            <div class="mpf-faq-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mpf-faq-answer">
+                            <div class="mpf-faq-answer-content">
+                                <p>MPF GROUP accepte plusieurs modes de paiement pour votre confort :</p>
+                                <ul>
+                                    <li><strong>Carte bancaire</strong> (via Stripe sécurisé) - Paiement en 12x disponible</li>
+                                    <li><strong>Virement SEPA</strong> - Paiement unique uniquement</li>
+                                    <li><strong>Cryptomonnaies</strong> (BTC, ETH, USDT) - Paiement unique uniquement</li>
+                                </ul>
+                                <p>Note : Le paiement échelonné sur 12 mois n'est disponible que pour les paiements par carte bancaire.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mpf-faq-item" data-keywords="retirer capital récupérer argent sortir">
+                        <div class="mpf-faq-question">
+                            <h3>Puis-je retirer mon capital avant la fin du contrat ?</h3>
+                            <div class="mpf-faq-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mpf-faq-answer">
+                            <div class="mpf-faq-answer-content">
+                                <p>Les contrats MPF GROUP ont une durée de <strong>12 mois fixes</strong>. Votre capital est engagé pour toute la durée du cycle de production agricole.</p>
+                                <p>Cependant, à l'échéance de votre contrat, vous pouvez :</p>
+                                <ul>
+                                    <li>Retirer la totalité de votre investissement sans frais</li>
+                                    <li>Choisir de ne pas renouveler votre contrat</li>
+                                </ul>
+                                <p>Cette structure permet d'assurer la stabilité des cycles de production et de garantir vos rendements.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Revenus et Rendements -->
+            <div class="mpf-category mpf-reveal" data-category="revenus">
+                <h2 class="mpf-category-title">
+                    <div class="mpf-category-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                        </svg>
+                    </div>
+                    Revenus et Rendements
+                </h2>
+                <div class="mpf-faq-list">
+                    <div class="mpf-faq-item" data-keywords="payer versement recevoir quand fréquence">
+                        <div class="mpf-faq-question">
+                            <h3>Quand et comment sont versés les revenus ?</h3>
+                            <div class="mpf-faq-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mpf-faq-answer">
+                            <div class="mpf-faq-answer-content">
+                                <p>Les revenus MPF GROUP sont versés <strong>mensuellement</strong>, directement sur votre compte :</p>
+                                <ul>
+                                    <li>Paiements automatiques chaque mois</li>
+                                    <li>Notification par email pour chaque versement</li>
+                                    <li>Historique complet disponible dans votre dashboard</li>
+                                    <li>Rendements fixes prévisibles</li>
+                                </ul>
+                                <p>Vous pouvez suivre en temps réel l'état de vos revenus depuis votre tableau de bord.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mpf-faq-item" data-keywords="fiscalité impôt taxe déclaration">
+                        <div class="mpf-faq-question">
+                            <h3>Comment sont imposés les revenus de mon investissement ?</h3>
+                            <div class="mpf-faq-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mpf-faq-answer">
+                            <div class="mpf-faq-answer-content">
+                                <p>Les revenus générés par votre investissement MPF GROUP sont soumis à la fiscalité en vigueur dans votre pays de résidence.</p>
+                                <p>MPF GROUP vous fournit :</p>
+                                <ul>
+                                    <li>Un récapitulatif annuel de vos revenus</li>
+                                    <li>Les attestations fiscales nécessaires</li>
+                                    <li>Documentation complète pour votre déclaration</li>
+                                </ul>
+                                <p>Nous vous recommandons de consulter un conseiller fiscal pour optimiser votre situation personnelle.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mpf-faq-item" data-keywords="réinvestir capitaliser augmenter">
+                        <div class="mpf-faq-question">
+                            <h3>Puis-je réinvestir mes revenus automatiquement ?</h3>
+                            <div class="mpf-faq-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mpf-faq-answer">
+                            <div class="mpf-faq-answer-content">
+                                <p>Oui ! À la fin de votre contrat de 12 mois, vous pouvez choisir de :</p>
+                                <ul>
+                                    <li><strong>Réinvestir automatiquement</strong> votre capital + revenus accumulés</li>
+                                    <li>Augmenter votre investissement avec un apport supplémentaire</li>
+                                    <li>Maintenir le même montant pour un nouveau cycle</li>
+                                </ul>
+                                <p>Cette option vous permet de faire croître votre capital par effet de capitalisation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Sécurité -->
+            <div class="mpf-category mpf-reveal" data-category="securite">
+                <h2 class="mpf-category-title">
+                    <div class="mpf-category-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+                        </svg>
+                    </div>
+                    Sécurité
+                </h2>
+                <div class="mpf-faq-list">
+                    <div class="mpf-faq-item" data-keywords="blockchain web3 nft tokenisation">
+                        <div class="mpf-faq-question">
+                            <h3>Comment fonctionne la tokenisation blockchain ?</h3>
+                            <div class="mpf-faq-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mpf-faq-answer">
+                            <div class="mpf-faq-answer-content">
+                                <p>MPF GROUP utilise la technologie blockchain pour tokeniser les actifs agricoles sous forme de NFT/RWA (Real World Assets).</p>
+                                <p>Avantages de la tokenisation :</p>
+                                <ul>
+                                    <li><strong>Transparence totale</strong> : Traçabilité de tous les investissements</li>
+                                    <li><strong>Sécurité renforcée</strong> : Immuabilité des enregistrements</li>
+                                    <li><strong>Propriété vérifiable</strong> : Preuve de votre investissement on-chain</li>
+                                    <li><strong>Innovation</strong> : Accès aux dernières technologies financières</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mpf-faq-item" data-keywords="données personnelles RGPD protection vie privée">
+                        <div class="mpf-faq-question">
+                            <h3>Mes données personnelles sont-elles protégées ?</h3>
+                            <div class="mpf-faq-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mpf-faq-answer">
+                            <div class="mpf-faq-answer-content">
+                                <p>Absolument. MPF GROUP respecte strictement le RGPD et les réglementations en vigueur :</p>
+                                <ul>
+                                    <li>Chiffrement de toutes vos données sensibles</li>
+                                    <li>Serveurs sécurisés conformes aux normes européennes</li>
+                                    <li>Aucune revente de vos informations à des tiers</li>
+                                    <li>Droit à l'oubli et accès à vos données garantis</li>
+                                </ul>
+                                <p>Votre vie privée et la sécurité de vos données sont nos priorités absolues.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mpf-faq-item" data-keywords="arnaque légal régulé fiable confiance">
+                        <div class="mpf-faq-question">
+                            <h3>MPF GROUP est-il une société régulée ?</h3>
+                            <div class="mpf-faq-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mpf-faq-answer">
+                            <div class="mpf-faq-answer-content">
+                                <p>Oui, MPF GROUP opère dans le respect total de la législation française et européenne :</p>
+                                <ul>
+                                    <li>Société immatriculée et enregistrée légalement</li>
+                                    <li>Conformité avec les réglementations financières</li>
+                                    <li>Transparence totale sur nos opérations</li>
+                                    <li>Contrats juridiquement validés</li>
+                                </ul>
+                                <p>Vous pouvez investir en toute confiance avec MPF GROUP.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category: Parrainage -->
+            <div class="mpf-category mpf-reveal" data-category="parrainage">
+                <h2 class="mpf-category-title">
+                    <div class="mpf-category-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+                        </svg>
+                    </div>
+                    Parrainage
+                </h2>
+                <div class="mpf-faq-list">
+                    <div class="mpf-faq-item" data-keywords="parrainage commission bonus gagner ami">
+                        <div class="mpf-faq-question">
+                            <h3>Comment fonctionne le programme de parrainage ?</h3>
+                            <div class="mpf-faq-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mpf-faq-answer">
+                            <div class="mpf-faq-answer-content">
+                                <p>Le programme de parrainage MPF GROUP vous permet de gagner des récompenses en invitant vos proches :</p>
+                                <ul>
+                                    <li>Recevez un <strong>lien de parrainage unique</strong></li>
+                                    <li>Partagez-le avec vos amis et famille</li>
+                                    <li>Gagnez <strong>5% de commission</strong> sur chaque investissement</li>
+                                    <li>Suivez vos parrainages en temps réel dans votre dashboard</li>
+                                </ul>
+                                <p>Aucune limite au nombre de personnes que vous pouvez parrainer !</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mpf-faq-item" data-keywords="commission 5% combien pourcent parrain">
+                        <div class="mpf-faq-question">
+                            <h3>Combien puis-je gagner avec le parrainage ?</h3>
+                            <div class="mpf-faq-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mpf-faq-answer">
+                            <div class="mpf-faq-answer-content">
+                                <p>Vous gagnez <strong>5% du montant investi</strong> par chaque personne que vous parrainez.</p>
+                                <p>Exemple :</p>
+                                <ul>
+                                    <li>Votre filleul investit 1000€ → Vous gagnez 50€</li>
+                                    <li>Votre filleul investit 5000€ → Vous gagnez 250€</li>
+                                </ul>
+                                <p>Les commissions sont versées <strong>immédiatement</strong> après l'investissement de votre filleul.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mpf-faq-item" data-keywords="code lien parrainage trouver partager">
+                        <div class="mpf-faq-question">
+                            <h3>Où trouver mon code de parrainage ?</h3>
+                            <div class="mpf-faq-icon">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="mpf-faq-answer">
+                            <div class="mpf-faq-answer-content">
+                                <p>Votre code de parrainage est accessible depuis votre tableau de bord :</p>
+                                <ul>
+                                    <li>Connectez-vous à votre compte</li>
+                                    <li>Allez dans la section "Parrainage"</li>
+                                    <li>Copiez votre lien unique</li>
+                                    <li>Partagez-le par email, SMS ou réseaux sociaux</li>
+                                </ul>
+                                <p>Vous pouvez suivre toutes vos statistiques de parrainage en temps réel.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- No Results Message -->
+            <div class="mpf-no-results" id="noResults">
+                <div class="mpf-no-results-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                    </svg>
+                </div>
+                <h3>Aucun résultat trouvé</h3>
+                <p>Essayez avec d'autres mots-clés ou contactez notre support pour plus d'aide.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="mpf-faq-cta">
+        <div class="mpf-faq-container">
+            <div class="mpf-cta-card">
+                <h2>Vous n'avez pas trouvé votre réponse ?</h2>
+                <p>Notre équipe est là pour vous aider. Contactez-nous et nous vous répondrons rapidement.</p>
+                <a href="/contact" class="mpf-cta-button">Nous contacter</a>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<script>
+// FAQ Search and Filter Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('faqSearch');
+    const clearButton = document.getElementById('clearSearch');
+    const searchResults = document.getElementById('searchResults');
+    const noResults = document.getElementById('noResults');
+    const faqItems = document.querySelectorAll('.mpf-faq-item');
+    const categories = document.querySelectorAll('.mpf-category');
+
+    // Toggle FAQ item
+    faqItems.forEach(item => {
+        const question = item.querySelector('.mpf-faq-question');
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+
+            // Close all items
+            faqItems.forEach(i => i.classList.remove('active'));
+
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+
+    // Search functionality
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase().trim();
+
+        // Show/hide clear button
+        if (searchTerm) {
+            clearButton.classList.add('active');
+        } else {
+            clearButton.classList.remove('active');
+        }
+
+        // Filter FAQ items
+        let visibleCount = 0;
+        let hiddenCategoryCount = 0;
+
+        categories.forEach(category => {
+            const itemsInCategory = category.querySelectorAll('.mpf-faq-item');
+            let visibleInCategory = 0;
+
+            itemsInCategory.forEach(item => {
+                const question = item.querySelector('h3').textContent.toLowerCase();
+                const answer = item.querySelector('.mpf-faq-answer-content').textContent.toLowerCase();
+                const keywords = item.dataset.keywords || '';
+
+                const searchableText = question + ' ' + answer + ' ' + keywords;
+
+                if (searchTerm === '' || searchableText.includes(searchTerm)) {
+                    item.classList.remove('hidden');
+                    visibleInCategory++;
+                    visibleCount++;
+                } else {
+                    item.classList.add('hidden');
+                    item.classList.remove('active');
+                }
+            });
+
+            // Hide category if no visible items
+            if (visibleInCategory === 0) {
+                category.style.display = 'none';
+                hiddenCategoryCount++;
+            } else {
+                category.style.display = 'block';
+            }
+        });
+
+        // Show/hide results count and no results message
+        if (searchTerm) {
+            searchResults.classList.add('active');
+            if (visibleCount === 0) {
+                searchResults.innerHTML = `Aucun résultat pour "<strong>${searchTerm}</strong>"`;
+                noResults.classList.add('active');
+            } else {
+                searchResults.innerHTML = `<strong>${visibleCount}</strong> question${visibleCount > 1 ? 's' : ''} trouvée${visibleCount > 1 ? 's' : ''} pour "<strong>${searchTerm}</strong>"`;
+                noResults.classList.remove('active');
+            }
+        } else {
+            searchResults.classList.remove('active');
+            noResults.classList.remove('active');
+        }
+    });
+
+    // Clear search
+    clearButton.addEventListener('click', function() {
+        searchInput.value = '';
+        searchInput.dispatchEvent(new Event('input'));
+        searchInput.focus();
+    });
+
+    // Scroll reveal animation
+    const reveals = document.querySelectorAll('.mpf-reveal');
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    reveals.forEach(reveal => {
+        observer.observe(reveal);
+    });
+});
+</script>
+
