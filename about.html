@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qui Sommes-Nous - MPF GROUP</title>
+    <style>
+        :root {
+            --primary-bg: #0A0E27;
+            --accent-color: #9D2C20;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .mpf-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Hero Section */
+        .mpf-about-hero {
+            position: relative;
+            padding: 120px 0 80px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .mpf-about-hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 900px;
+            height: 900px;
+            background-image:
+                radial-gradient(circle, var(--accent-color) 2px, transparent 2px),
+                radial-gradient(circle, var(--accent-color) 2px, transparent 2px);
+            background-size: 50px 50px;
+            background-position: 0 0, 25px 25px;
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .mpf-hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .mpf-hero-badge {
+            display: inline-block;
+            padding: 12px 24px;
+            background: rgba(157, 44, 32, 0.1);
+            border: 1px solid rgba(157, 44, 32, 0.3);
+            border-radius: 50px;
+            color: var(--accent-color);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .mpf-about-hero h1 {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #FFFFFF, #B0B0B0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .mpf-hero-subtitle {
+            font-size: 24px;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.5;
+        }
+
+        /* Mission & Vision Section */
+        .mpf-mission-vision {
+            padding: 80px 0;
+        }
+
+        .mpf-mv-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .mpf-mv-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 48px;
+            transition: all 0.4s ease;
+        }
+
+        .mpf-mv-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(157, 44, 32, 0.3);
+            box-shadow: 0 20px 60px rgba(157, 44, 32, 0.1);
+        }
+
+        .mpf-mv-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(157, 44, 32, 0.2), rgba(217, 68, 54, 0.1));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .mpf-mv-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--accent-color);
+        }
+
+        .mpf-mv-card h2 {
+            font-size: 32px;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .mpf-mv-card p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Story Section */
+        .mpf-story {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .mpf-story::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 100%;
+            height: 600px;
+            background-image:
+                radial-gradient(circle, var(--accent-color) 2px, transparent 2px),
+                radial-gradient(circle, var(--accent-color) 2px, transparent 2px);
+            background-size: 50px 50px;
+            background-position: 0 0, 25px 25px;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .mpf-section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mpf-section-header h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .mpf-section-header p {
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .mpf-timeline {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .mpf-timeline-item {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 60px;
+            align-items: flex-start;
+        }
+
+        .mpf-timeline-year {
+            flex-shrink: 0;
+            width: 120px;
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--accent-color);
+            text-align: right;
+        }
+
+        .mpf-timeline-content {
+            flex: 1;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 32px;
+        }
+
+        .mpf-timeline-content h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .mpf-timeline-content p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Values Section */
+        .mpf-values {
+            padding: 80px 0;
+        }
+
+        .mpf-values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .mpf-value-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .mpf-value-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(157, 44, 32, 0.3);
+            box-shadow: 0 20px 60px rgba(157, 44, 32, 0.1);
+        }
+
+        .mpf-value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(157, 44, 32, 0.2), rgba(217, 68, 54, 0.1));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+
+        .mpf-value-icon svg {
+            width: 36px;
+            height: 36px;
+            fill: var(--accent-color);
+        }
+
+        .mpf-value-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .mpf-value-card p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Technology Section */
+        .mpf-technology {
+            padding: 80px 0;
+        }
+
+        .mpf-tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .mpf-tech-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 48px;
+            transition: all 0.4s ease;
+        }
+
+        .mpf-tech-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(157, 44, 32, 0.3);
+            box-shadow: 0 20px 60px rgba(157, 44, 32, 0.1);
+        }
+
+        .mpf-tech-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, rgba(157, 44, 32, 0.2), rgba(217, 68, 54, 0.1));
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 28px;
+        }
+
+        .mpf-tech-icon svg {
+            width: 45px;
+            height: 45px;
+            fill: var(--accent-color);
+        }
+
+        .mpf-tech-card h3 {
+            font-size: 28px;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .mpf-tech-card p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .mpf-tech-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .mpf-tech-features li {
+            font-size: 15px;
+            color: var(--text-secondary);
+            padding: 10px 0;
+            padding-left: 32px;
+            position: relative;
+        }
+
+        .mpf-tech-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        /* Stats Section */
+        .mpf-stats {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .mpf-stats::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            width: 600px;
+            height: 600px;
+            background-image:
+                radial-gradient(circle, var(--accent-color) 2px, transparent 2px),
+                radial-gradient(circle, var(--accent-color) 2px, transparent 2px);
+            background-size: 50px 50px;
+            background-position: 0 0, 25px 25px;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .mpf-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mpf-stat-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px 32px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .mpf-stat-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(157, 44, 32, 0.3);
+            box-shadow: 0 20px 60px rgba(157, 44, 32, 0.1);
+        }
+
+        .mpf-stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .mpf-stat-label {
+            font-size: 16px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Commitments Section */
+        .mpf-commitments {
+            padding: 80px 0;
+        }
+
+        .mpf-commitments-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .mpf-commitment-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            transition: all 0.4s ease;
+        }
+
+        .mpf-commitment-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(157, 44, 32, 0.3);
+            box-shadow: 0 20px 60px rgba(157, 44, 32, 0.1);
+        }
+
+        .mpf-commitment-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(157, 44, 32, 0.2), rgba(217, 68, 54, 0.1));
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .mpf-commitment-icon svg {
+            width: 34px;
+            height: 34px;
+            fill: var(--accent-color);
+        }
+
+        .mpf-commitment-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .mpf-commitment-card p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Why Choose Us Section */
+        .mpf-why-choose {
+            padding: 80px 0 120px;
+        }
+
+        .mpf-why-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .mpf-why-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            display: flex;
+            gap: 24px;
+            transition: all 0.4s ease;
+        }
+
+        .mpf-why-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(157, 44, 32, 0.3);
+            box-shadow: 0 20px 60px rgba(157, 44, 32, 0.1);
+        }
+
+        .mpf-why-number {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-color), #D94436);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 800;
+            color: white;
+        }
+
+        .mpf-why-content h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .mpf-why-content p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .mpf-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .mpf-values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mpf-container {
+                padding: 0 20px;
+            }
+
+            .mpf-about-hero {
+                padding: 80px 0 60px;
+            }
+
+            .mpf-about-hero h1 {
+                font-size: 40px;
+            }
+
+            .mpf-hero-subtitle {
+                font-size: 18px;
+            }
+
+            .mpf-mv-grid,
+            .mpf-tech-grid,
+            .mpf-why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mpf-stats-grid,
+            .mpf-values-grid,
+            .mpf-commitments-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mpf-timeline-item {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .mpf-timeline-year {
+                text-align: left;
+                font-size: 36px;
+            }
+
+            .mpf-section-header h2 {
+                font-size: 36px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .mpf-reveal {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .mpf-reveal:nth-child(1) { animation-delay: 0.1s; }
+        .mpf-reveal:nth-child(2) { animation-delay: 0.2s; }
+        .mpf-reveal:nth-child(3) { animation-delay: 0.3s; }
+        .mpf-reveal:nth-child(4) { animation-delay: 0.4s; }
+        .mpf-reveal:nth-child(5) { animation-delay: 0.5s; }
+        .mpf-reveal:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="mpf-about-hero">
+        <div class="mpf-container">
+            <div class="mpf-hero-content">
+                <span class="mpf-hero-badge">Qui Sommes-Nous</span>
+                <h1>Révolutionner l'agriculture<br>par la blockchain</h1>
+                <p class="mpf-hero-subtitle">
+                    MPF GROUP combine l'innovation technologique et l'agriculture durable pour créer
+                    un écosystème d'investissement transparent, rentable et responsable.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="mpf-mission-vision">
+        <div class="mpf-container">
+            <div class="mpf-mv-grid">
+                <div class="mpf-mv-card mpf-reveal">
+                    <div class="mpf-mv-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V7.89l7-3.78v8.88z"/>
+                        </svg>
+                    </div>
+                    <h2>Notre Mission</h2>
+                    <p>
+                        Démocratiser l'accès à l'investissement agricole en offrant une plateforme
+                        transparente et sécurisée. Nous permettons à chacun de participer à la révolution
+                        de l'agriculture verticale tout en générant des rendements attractifs et prévisibles.
+                    </p>
+                </div>
+
+                <div class="mpf-mv-card mpf-reveal">
+                    <div class="mpf-mv-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                        </svg>
+                    </div>
+                    <h2>Notre Vision</h2>
+                    <p>
+                        Devenir le leader européen de l'agriculture verticale tokenisée. Nous construisons
+                        un futur où la technologie blockchain garantit une transparence totale et où chaque
+                        investisseur peut suivre en temps réel l'évolution de sa production.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Timeline -->
+    <section class="mpf-story">
+        <div class="mpf-container">
+            <div class="mpf-section-header">
+                <h2>Notre Histoire</h2>
+                <p>Un parcours d'innovation et de croissance continue</p>
+            </div>
+
+            <div class="mpf-timeline">
+                <div class="mpf-timeline-item mpf-reveal">
+                    <div class="mpf-timeline-year">2021</div>
+                    <div class="mpf-timeline-content">
+                        <h3>Fondation de MPF GROUP</h3>
+                        <p>
+                            Création de l'entreprise avec une vision claire : combiner agriculture durable
+                            et innovation blockchain. Mise en place des premières infrastructures de culture verticale.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mpf-timeline-item mpf-reveal">
+                    <div class="mpf-timeline-year">2022</div>
+                    <div class="mpf-timeline-content">
+                        <h3>Première Récolte & Tokenisation</h3>
+                        <p>
+                            Lancement de notre système de tokenisation blockchain. Ouverture aux premiers
+                            investisseurs avec des contrats de 12 mois. Première récolte de 10 tonnes de fraises premium.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mpf-timeline-item mpf-reveal">
+                    <div class="mpf-timeline-year">2023</div>
+                    <div class="mpf-timeline-content">
+                        <h3>Extension & Certification</h3>
+                        <p>
+                            Expansion de nos installations avec 3 nouvelles serres verticales. Obtention de la
+                            certification bio européenne. Dépassement des 500 investisseurs actifs.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mpf-timeline-item mpf-reveal">
+                    <div class="mpf-timeline-year">2024</div>
+                    <div class="mpf-timeline-content">
+                        <h3>Innovation & Dashboard</h3>
+                        <p>
+                            Lancement du dashboard investisseur en temps réel. Intégration de l'IA pour
+                            l'optimisation des cultures. Production annuelle de 50 tonnes avec un taux de satisfaction de 98%.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mpf-timeline-item mpf-reveal">
+                    <div class="mpf-timeline-year">2025</div>
+                    <div class="mpf-timeline-content">
+                        <h3>Expansion Européenne</h3>
+                        <p>
+                            Ouverture de nouvelles installations en Europe. Lancement du programme de parrainage.
+                            Objectif : 1000 investisseurs et 100 tonnes de production annuelle.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values -->
+    <section class="mpf-values">
+        <div class="mpf-container">
+            <div class="mpf-section-header">
+                <h2>Nos Valeurs</h2>
+                <p>Les principes qui guident chacune de nos actions</p>
+            </div>
+
+            <div class="mpf-values-grid">
+                <div class="mpf-value-card mpf-reveal">
+                    <div class="mpf-value-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                        </svg>
+                    </div>
+                    <h3>Transparence Totale</h3>
+                    <p>
+                        Chaque transaction, chaque rendement, chaque étape de production est enregistrée
+                        sur la blockchain et accessible à nos investisseurs.
+                    </p>
+                </div>
+
+                <div class="mpf-value-card mpf-reveal">
+                    <div class="mpf-value-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4c-1.48 0-2.85.43-4.01 1.17l1.46 1.46C10.21 6.23 11.08 6 12 6c3.04 0 5.5 2.46 5.5 5.5v.5H19c1.66 0 3 1.34 3 3 0 1.13-.64 2.11-1.56 2.62l1.45 1.45C23.16 18.16 24 16.68 24 15c0-2.64-2.05-4.78-4.65-4.96zM3 5.27l2.75 2.74C2.56 8.15 0 10.77 0 14c0 3.31 2.69 6 6 6h11.73l2 2L21 20.73 4.27 4 3 5.27zM7.73 10l8 8H6c-2.21 0-4-1.79-4-4s1.79-4 4-4h1.73z"/>
+                        </svg>
+                    </div>
+                    <h3>Durabilité</h3>
+                    <p>
+                        Agriculture verticale sans pesticides, consommation d'eau réduite de 95%,
+                        énergie renouvelable pour un impact environnemental minimal.
+                    </p>
+                </div>
+
+                <div class="mpf-value-card mpf-reveal">
+                    <div class="mpf-value-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+                        </svg>
+                    </div>
+                    <h3>Innovation Continue</h3>
+                    <p>
+                        Investissement constant dans la R&D, intégration de l'IA, optimisation des processus
+                        pour rester à la pointe de l'agritech.
+                    </p>
+                </div>
+
+                <div class="mpf-value-card mpf-reveal">
+                    <div class="mpf-value-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                        </svg>
+                    </div>
+                    <h3>Communauté</h3>
+                    <p>
+                        Nous construisons une communauté d'investisseurs engagés, avec un programme de
+                        parrainage et des événements réguliers.
+                    </p>
+                </div>
+
+                <div class="mpf-value-card mpf-reveal">
+                    <div class="mpf-value-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                        </svg>
+                    </div>
+                    <h3>Rentabilité</h3>
+                    <p>
+                        Objectif de 10-15% de rendement annuel grâce à une gestion rigoureuse et
+                        une optimisation constante de la production.
+                    </p>
+                </div>
+
+                <div class="mpf-value-card mpf-reveal">
+                    <div class="mpf-value-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                        </svg>
+                    </div>
+                    <h3>Sécurité</h3>
+                    <p>
+                        Blockchain sécurisée, smart contracts audités, conformité RGPD et protection
+                        maximale des données et investissements.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology -->
+    <section class="mpf-technology">
+        <div class="mpf-container">
+            <div class="mpf-section-header">
+                <h2>Notre Technologie</h2>
+                <p>L'alliance parfaite entre agriculture et innovation blockchain</p>
+            </div>
+
+            <div class="mpf-tech-grid">
+                <div class="mpf-tech-card mpf-reveal">
+                    <div class="mpf-tech-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.09 11h4.86c-.16-1.61-.71-3.11-1.54-4.4l-3.43 3.43c.07.31.11.64.11.97zm-4.97-9.96L12 1l-.12.04C6.43 2.07 2.07 6.43 1.04 11.88L1 12l.04.12C2.07 17.57 6.43 21.93 11.88 22.96L12 23l.12-.04c5.45-1.03 9.81-5.39 10.84-10.84L23 12l-.04-.12c-1.03-5.45-5.39-9.81-10.84-10.84zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/>
+                            <circle cx="12" cy="12" r="3.5"/>
+                        </svg>
+                    </div>
+                    <h3>Blockchain Ethereum</h3>
+                    <p>
+                        Nos contrats d'investissement sont tokenisés sur la blockchain Ethereum,
+                        garantissant une sécurité maximale et une transparence totale.
+                    </p>
+                    <ul class="mpf-tech-features">
+                        <li>Smart contracts audités par des experts indépendants</li>
+                        <li>Traçabilité complète de chaque transaction</li>
+                        <li>Immuabilité et sécurité cryptographique</li>
+                        <li>Transfert de propriété instantané et sécurisé</li>
+                    </ul>
+                </div>
+
+                <div class="mpf-tech-card mpf-reveal">
+                    <div class="mpf-tech-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2c-4.2 0-8 .5-8 2 0 .8 1.5 1.5 3.6 1.8l1.4 7.6c-2 .4-3.5 1.1-3.5 2 0 1.5 3.8 2 8.5 2s8.5-.5 8.5-2c0-.9-1.5-1.6-3.5-2l1.4-7.6c2.1-.3 3.6-1 3.6-1.8 0-1.5-3.8-2-8-2zm0 2c3.7 0 6 .4 6 .5s-2.3.5-6 .5-6-.4-6-.5 2.3-.5 6-.5zM8.9 6.5h6.2l-1.3 7.1c-.5 0-1 .1-1.5.1h-2.6c-.5 0-1-.1-1.5-.1l-1.3-7.1zm3.1 9.5c3.7 0 6.5.4 6.5.5s-2.8.5-6.5.5-6.5-.4-6.5-.5 2.8-.5 6.5-.5z"/>
+                        </svg>
+                    </div>
+                    <h3>Agriculture Verticale</h3>
+                    <p>
+                        Des installations high-tech permettant une production optimale toute l'année,
+                        avec un contrôle précis de chaque paramètre environnemental.
+                    </p>
+                    <ul class="mpf-tech-features">
+                        <li>Culture en environnement contrôlé (température, humidité, lumière)</li>
+                        <li>Économie d'eau de 95% vs agriculture traditionnelle</li>
+                        <li>Zéro pesticide, production 100% bio</li>
+                        <li>Rendement 10x supérieur par m² cultivé</li>
+                    </ul>
+                </div>
+
+                <div class="mpf-tech-card mpf-reveal">
+                    <div class="mpf-tech-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                        </svg>
+                    </div>
+                    <h3>Dashboard Temps Réel</h3>
+                    <p>
+                        Un tableau de bord personnalisé pour suivre vos investissements,
+                        votre production et vos rendements en temps réel.
+                    </p>
+                    <ul class="mpf-tech-features">
+                        <li>Suivi en direct de votre production de fraises</li>
+                        <li>Graphiques et statistiques détaillées</li>
+                        <li>Notifications automatiques (récolte, paiement, etc.)</li>
+                        <li>Interface mobile responsive et intuitive</li>
+                    </ul>
+                </div>
+
+                <div class="mpf-tech-card mpf-reveal">
+                    <div class="mpf-tech-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM8 20H4v-4h4v4zm0-6H4v-4h4v4zm0-6H4V4h4v4zm6 12h-4v-4h4v4zm0-6h-4v-4h4v4zm0-6h-4V4h4v4zm6 12h-4v-4h4v4zm0-6h-4v-4h4v4zm0-6h-4V4h4v4z"/>
+                        </svg>
+                    </div>
+                    <h3>Intelligence Artificielle</h3>
+                    <p>
+                        L'IA optimise chaque aspect de la production pour maximiser les rendements
+                        et la qualité de nos fraises premium.
+                    </p>
+                    <ul class="mpf-tech-features">
+                        <li>Optimisation automatique des cycles de culture</li>
+                        <li>Prédiction des rendements avec 95% de précision</li>
+                        <li>Détection précoce des anomalies de croissance</li>
+                        <li>Ajustement dynamique des paramètres environnementaux</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="mpf-stats">
+        <div class="mpf-container">
+            <div class="mpf-section-header">
+                <h2>Nos Chiffres Clés</h2>
+                <p>Des résultats concrets qui parlent d'eux-mêmes</p>
+            </div>
+
+            <div class="mpf-stats-grid">
+                <div class="mpf-stat-card mpf-reveal">
+                    <span class="mpf-stat-number">500+</span>
+                    <span class="mpf-stat-label">Investisseurs Actifs</span>
+                </div>
+
+                <div class="mpf-stat-card mpf-reveal">
+                    <span class="mpf-stat-number">50T</span>
+                    <span class="mpf-stat-label">Production Annuelle</span>
+                </div>
+
+                <div class="mpf-stat-card mpf-reveal">
+                    <span class="mpf-stat-number">12-15%</span>
+                    <span class="mpf-stat-label">Rendement Moyen</span>
+                </div>
+
+                <div class="mpf-stat-card mpf-reveal">
+                    <span class="mpf-stat-number">98%</span>
+                    <span class="mpf-stat-label">Satisfaction Client</span>
+                </div>
+
+                <div class="mpf-stat-card mpf-reveal">
+                    <span class="mpf-stat-number">5</span>
+                    <span class="mpf-stat-label">Serres Verticales</span>
+                </div>
+
+                <div class="mpf-stat-card mpf-reveal">
+                    <span class="mpf-stat-number">95%</span>
+                    <span class="mpf-stat-label">Économie d'Eau</span>
+                </div>
+
+                <div class="mpf-stat-card mpf-reveal">
+                    <span class="mpf-stat-number">100%</span>
+                    <span class="mpf-stat-label">Bio & Sans Pesticides</span>
+                </div>
+
+                <div class="mpf-stat-card mpf-reveal">
+                    <span class="mpf-stat-number">24/7</span>
+                    <span class="mpf-stat-label">Support Client</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commitments -->
+    <section class="mpf-commitments">
+        <div class="mpf-container">
+            <div class="mpf-section-header">
+                <h2>Nos Engagements</h2>
+                <p>Ce que nous promettons à nos investisseurs et à la planète</p>
+            </div>
+
+            <div class="mpf-commitments-grid">
+                <div class="mpf-commitment-card mpf-reveal">
+                    <div class="mpf-commitment-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h3>Transparence Garantie</h3>
+                    <p>
+                        Accès complet à toutes les données de production via la blockchain.
+                        Rapports mensuels détaillés et dashboard en temps réel.
+                    </p>
+                </div>
+
+                <div class="mpf-commitment-card mpf-reveal">
+                    <div class="mpf-commitment-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 1L8 5v6H5l7 7 7-7h-3V5l-4-4zm6.99 18c-.01 0-.01 0 0 0h-14c-.01 0-.01 0 0 0-.55 0-1 .45-1 1s.45 1 1 1h14c.55 0 1-.45 1-1s-.45-1-1-1z"/>
+                        </svg>
+                    </div>
+                    <h3>Impact Environnemental</h3>
+                    <p>
+                        Réduction de 95% de la consommation d'eau, zéro pesticide,
+                        énergie 100% renouvelable d'ici 2026.
+                    </p>
+                </div>
+
+                <div class="mpf-commitment-card mpf-reveal">
+                    <div class="mpf-commitment-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z"/>
+                        </svg>
+                    </div>
+                    <h3>Rendements Prévisibles</h3>
+                    <p>
+                        Objectif de 10-15% de rendement annuel basé sur des cycles de production
+                        maîtrisés et optimisés par IA.
+                    </p>
+                </div>
+
+                <div class="mpf-commitment-card mpf-reveal">
+                    <div class="mpf-commitment-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/>
+                        </svg>
+                    </div>
+                    <h3>Qualité Premium</h3>
+                    <p>
+                        Fraises cultivées dans des conditions optimales, sans pesticides,
+                        avec une saveur et une fraîcheur incomparables.
+                    </p>
+                </div>
+
+                <div class="mpf-commitment-card mpf-reveal">
+                    <div class="mpf-commitment-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                        </svg>
+                    </div>
+                    <h3>Innovation Continue</h3>
+                    <p>
+                        Investissement de 15% des revenus en R&D pour rester à la pointe
+                        de l'agriculture verticale et de la blockchain.
+                    </p>
+                </div>
+
+                <div class="mpf-commitment-card mpf-reveal">
+                    <div class="mpf-commitment-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V7.89l7-3.78v8.88z"/>
+                        </svg>
+                    </div>
+                    <h3>Sécurité Maximale</h3>
+                    <p>
+                        Smart contracts audités, conformité RGPD, serveurs sécurisés,
+                        et assurance sur les installations de production.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="mpf-why-choose">
+        <div class="mpf-container">
+            <div class="mpf-section-header">
+                <h2>Pourquoi Choisir MPF GROUP ?</h2>
+                <p>Les avantages qui nous distinguent de l'investissement traditionnel</p>
+            </div>
+
+            <div class="mpf-why-grid">
+                <div class="mpf-why-card mpf-reveal">
+                    <div class="mpf-why-number">01</div>
+                    <div class="mpf-why-content">
+                        <h3>Accessibilité</h3>
+                        <p>
+                            Investissez dès 500€ dans l'agriculture verticale. Pas besoin d'être un expert
+                            ou d'avoir un capital important pour commencer à générer des revenus passifs.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mpf-why-card mpf-reveal">
+                    <div class="mpf-why-number">02</div>
+                    <div class="mpf-why-content">
+                        <h3>Rendements Attractifs</h3>
+                        <p>
+                            Objectif de 10-15% de rendement annuel, largement supérieur aux placements
+                            traditionnels, grâce à une production optimisée et des coûts maîtrisés.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mpf-why-card mpf-reveal">
+                    <div class="mpf-why-number">03</div>
+                    <div class="mpf-why-content">
+                        <h3>Transparence Blockchain</h3>
+                        <p>
+                            Chaque euro investi, chaque fraise produite, chaque paiement est enregistré
+                            sur la blockchain. Vous avez un contrôle total et une visibilité complète.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mpf-why-card mpf-reveal">
+                    <div class="mpf-why-number">04</div>
+                    <div class="mpf-why-content">
+                        <h3>Impact Positif</h3>
+                        <p>
+                            Investissez dans un projet qui a du sens : agriculture durable, zéro pesticide,
+                            économie d'eau massive, production locale et responsable.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mpf-why-card mpf-reveal">
+                    <div class="mpf-why-number">05</div>
+                    <div class="mpf-why-content">
+                        <h3>Suivi en Temps Réel</h3>
+                        <p>
+                            Dashboard personnalisé accessible 24/7 depuis votre ordinateur ou smartphone.
+                            Suivez votre production, vos rendements et recevez des notifications en temps réel.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mpf-why-card mpf-reveal">
+                    <div class="mpf-why-number">06</div>
+                    <div class="mpf-why-content">
+                        <h3>Équipe Experte</h3>
+                        <p>
+                            Une équipe pluridisciplinaire d'agronomes, d'ingénieurs blockchain et de
+                            gestionnaires financiers dédiés à votre réussite et à l'optimisation des rendements.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('mpf-reveal');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.mpf-mv-card, .mpf-timeline-item, .mpf-value-card, .mpf-tech-card, .mpf-stat-card, .mpf-commitment-card, .mpf-why-card');
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
